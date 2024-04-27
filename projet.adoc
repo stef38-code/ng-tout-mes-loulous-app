@@ -1,0 +1,62 @@
+= Tout mes loulous
+Firstname Lastname <author@asciidoctor.org>
+3.0, July 29, 2022: AsciiDoc article template
+:toc:
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+== Composants
+
+== Modules
+
+=== Layout
+
+=== Pages
+
+=== Core
+
+== Sujet
+
+=== Enfant
+==== caractéristiques
+* Nom
+* Prenom
+* Date de naissance
+* Information Divers
+  * Santé, parole, marche....
+* Informations alimentations
+  ** Allergies Alimentaires
+  ** Préférences alimentaires
+* Parents[2]
+  ** Divorcé
+  ** Nom
+  ** Prénom
+  ** adresse
+    *** A définir
+  ** Téléphone
+    *** portable, travail
+  ** email[1]
+* Contacts[n]
+  ** Nom
+  ** Prénom
+  ** Téléphone
+  *** portable, travail
+  ** relation (parent,voisine...etc)
+
+=== Contrat
+* Temps de garde
+  ** Jours/horaires -> déduire temps la semaine
+  ** Type contrat
+    ** Incomplet/complet
+    ** Nombres de semaine par an
+* Mensualisation
+  * Nombre d'heures par semaine
+* Indeminitès entretien
+  * Par heures
+* Tarifs(*)
+  * repas
+  * gouter
+
+
+
+
