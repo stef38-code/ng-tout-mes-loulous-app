@@ -4,24 +4,11 @@
   [hasBackdrop]="mdcBackdrop">
   <mat-drawer #drawer fxFlex [mode]="drawerMode">
     <div class="sidenav-content">
-      <div class="drawerButton">
-        <button
-          (click)="drawer.toggle()"
-          mat-flat-button
-          routerLinkActive="mat-accent"
-          color="primary"
-          routerLink="home">Home
-        </button>
-      </div>
-      <div class="drawerButton">
-        <button
-          (click)="drawer.toggle()"
-          mat-flat-button
-          routerLinkActive="mat-accent"
-          color="primary"
-          routerLink="content">Content
-        </button>
-      </div>
+      <mat-nav-list *ngFor="let item of sidebarItems$ | async; index as i">
+        <a mat-list-item routerLink="{{item.link}}" routerLinkActive="active" (click)="drawer.toggle()">
+        <mat-icon color="primary">{{item.icon}}</mat-icon></a>
+        {{item.text}}
+      </mat-nav-list>
     </div>
   </mat-drawer>
   <mat-drawer-content >
