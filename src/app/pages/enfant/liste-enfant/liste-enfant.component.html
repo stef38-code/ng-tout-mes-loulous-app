@@ -1,1 +1,4 @@
-<p>liste-enfant works!</p>
+<H2 class="center">Liste des enfants</H2>
+<div *ngFor="let item of enfantList$ | async; index as i">
+  <p>{{ item.nom }}</p>
+</div>

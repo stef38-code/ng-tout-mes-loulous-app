@@ -1,0 +1,335 @@
+import {Enfant} from "../model/enfant";
+
+export const ENFANTS: Enfant[] = [
+  {
+    id: 0,
+    nom: "Leach",
+    prenom: "Maxine",
+    genre: "Fille",
+    dateNaissance: new Date(2023, 7,4),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 1,
+    nom: "Elliott",
+    prenom: "Barlow",
+    genre: "Garçon",
+    dateNaissance:  new Date(2023,2,14),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 2,
+    nom: "Howard",
+    prenom: "Maude",
+    genre: "Fille",
+    dateNaissance:  new Date(2022,11,29),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 3,
+    nom: "Byers",
+    prenom: "Rita",
+    genre: "Fille",
+    dateNaissance:  new Date(2022,6,7),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 4,
+    nom: "Romero",
+    prenom: "Potter",
+    genre: "Garçon",
+    dateNaissance:  new Date(2023,11,10),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 5,
+    nom: "Gardner",
+    prenom: "Saunders",
+    genre: "Garçon",
+    dateNaissance:  new Date(2022,2,28),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 6,
+    nom: "Goodman",
+    prenom: "Carissa",
+    genre: "Fille",
+    dateNaissance:  new Date(2023,2,4),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 7,
+    nom: "Briggs",
+    prenom: "Blair",
+    genre: "Garçon",
+    dateNaissance:  new Date(2023,3,1),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 8,
+    nom: "Patton",
+    prenom: "Harper",
+    genre: "Garçon",
+    dateNaissance:  new Date(2022,2,7),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 9,
+    nom: "Garza",
+    prenom: "Debra",
+    genre: "Fille",
+    dateNaissance:  new Date(2022,6,29),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 10,
+    nom: "Stark",
+    prenom: "Alyce",
+    genre: "Fille",
+    dateNaissance:  new Date(2023,9,31),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 11,
+    nom: "Bonner",
+    prenom: "Shannon",
+    genre: "Garçon",
+    dateNaissance:  new Date(2022,1,2),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 12,
+    nom: "Snider",
+    prenom: "Rose",
+    genre: "Garçon",
+    dateNaissance:  new Date(2023,8,22),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 13,
+    nom: "Coffey",
+    prenom: "Elaine",
+    genre: "Fille",
+    dateNaissance:  new Date(2022,5,24),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 14,
+    nom: "Farmer",
+    prenom: "Hughes",
+    genre: "Garçon",
+    dateNaissance:  new Date(2022,9,28),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 15,
+    nom: "Lyons",
+    prenom: "Morris",
+    genre: "Garçon",
+    dateNaissance:  new Date(2023,9,31),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 16,
+    nom: "Montoya",
+    prenom: "Gentry",
+    genre: "Garçon",
+    dateNaissance:  new Date(2023,3,28),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 17,
+    nom: "Rivas",
+    prenom: "Nora",
+    genre: "Fille",
+    dateNaissance:  new Date(2022,5,22),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 18,
+    nom: "Richardson",
+    prenom: "Stone",
+    genre: "Garçon",
+    dateNaissance:  new Date(2023,11,28),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 19,
+    nom: "Bailey",
+    prenom: "Brady",
+    genre: "Garçon",
+    dateNaissance:  new Date(2022,7,5),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 20,
+    nom: "Beard",
+    prenom: "Terri",
+    genre: "Fille",
+    dateNaissance:  new Date(2023,8,10),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 21,
+    nom: "Hoover",
+    prenom: "Bernadine",
+    genre: "Fille",
+    dateNaissance:  new Date(2023,3,14),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 22,
+    nom: "Salazar",
+    prenom: "Odom",
+    genre: "Garçon",
+    dateNaissance:  new Date(2023,9,7),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 23,
+    nom: "Gaines",
+    prenom: "Gina",
+    genre: "Fille",
+    dateNaissance:  new Date(2022,10,13),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 24,
+    nom: "Terrell",
+    prenom: "Fern",
+    genre: "Fille",
+    dateNaissance:  new Date(2022,6,3),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 25,
+    nom: "Curtis",
+    prenom: "Lucas",
+    genre: "Garçon",
+    dateNaissance:  new Date(2022,11,1),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 26,
+    nom: "Benton",
+    prenom: "Alisa",
+    genre: "Fille",
+    dateNaissance:  new Date(2023,3,5),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 27,
+    nom: "Hayden",
+    prenom: "Marva",
+    genre: "Fille",
+    dateNaissance:  new Date(2023,3,7),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 28,
+    nom: "Melton",
+    prenom: "Silvia",
+    genre: "Fille",
+    dateNaissance:  new Date(2022,7,12),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  },
+  {
+    id: 29,
+    nom: "Young",
+    prenom: "Carrie",
+    genre: "Fille",
+    dateNaissance:  new Date(2023,11,20),
+    infoDivers: undefined,
+    infoAlimentaire:  undefined,
+    parents:  undefined,
+    contacts:  undefined
+  }
+];
+

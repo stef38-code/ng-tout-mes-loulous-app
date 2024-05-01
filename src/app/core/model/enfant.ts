@@ -3,6 +3,7 @@ import {InfoAlimentaire} from "./info-alimentaire";
 import {Personne} from "./personne";
 
 export class Enfant {
+  id: number | undefined;
   genre: string | undefined;
   nom: string | undefined;
   prenom:string | undefined;
