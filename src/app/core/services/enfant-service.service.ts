@@ -1,11 +1,10 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {Enfant} from "../model/enfant";
+import {Enfant} from "@model/enfant";
 import {catchError, Observable, of, tap} from "rxjs";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable(
+)
 export class EnfantService {
 
   constructor(private httpClient: HttpClient) {

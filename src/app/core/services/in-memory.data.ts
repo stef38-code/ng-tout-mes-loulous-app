@@ -1,16 +1,65 @@
-import {Enfant} from "../model/enfant";
+import {Enfant} from "@model/enfant";
 
-export const ENFANTS: Enfant[] = [
+
+export const enfants: Enfant[] = [
+  {
+    id: 0,
+    nom: "Leach",
+    prenom: "Maxine",
+    genre: "Garçon",
+    dateNaissance: new Date(2023, 7, 4),
+  }, {
+    id: 1,
+    nom: "Elliott",
+    prenom: "Barlow",
+    genre: "Garçon",
+    dateNaissance: new Date(2023, 2, 14),
+  },
+  {
+    id: 2,
+    nom: "Howard",
+    prenom: "Maude",
+    genre: "Fille",
+    dateNaissance: new Date(2022, 11, 29),
+  },
+  {
+    id: 3,
+    nom: "Byers",
+    prenom: "Rita",
+    genre: "Fille",
+    dateNaissance: new Date(2022, 6, 7),
+  },
+  {
+    id: 4,
+    nom: "Romero",
+    prenom: "Potter",
+    genre: "Garçon",
+    dateNaissance: new Date(2023, 11, 10),
+  },
+  {
+    id: 5,
+    nom: "Gardner",
+    prenom: "Saunders",
+    genre: "Garçon",
+    dateNaissance: new Date(2022, 2, 28),
+  },
+  {
+    id: 6,
+    nom: "Goodman",
+    prenom: "Carissa",
+    genre: "Fille",
+    dateNaissance: new Date(2023, 2, 4),
+  }
+];
+export const ENFANT: Enfant[] = [
   {
     id: 0,
     nom: "Leach",
     prenom: "Maxine",
     genre: "Fille",
     dateNaissance: new Date(2023, 7,4),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 1,
@@ -18,10 +67,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Barlow",
     genre: "Garçon",
     dateNaissance:  new Date(2023,2,14),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 2,
@@ -29,10 +76,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Maude",
     genre: "Fille",
     dateNaissance:  new Date(2022,11,29),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 3,
@@ -40,10 +85,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Rita",
     genre: "Fille",
     dateNaissance:  new Date(2022,6,7),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 4,
@@ -51,10 +94,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Potter",
     genre: "Garçon",
     dateNaissance:  new Date(2023,11,10),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 5,
@@ -62,10 +103,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Saunders",
     genre: "Garçon",
     dateNaissance:  new Date(2022,2,28),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 6,
@@ -73,10 +112,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Carissa",
     genre: "Fille",
     dateNaissance:  new Date(2023,2,4),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 7,
@@ -84,10 +121,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Blair",
     genre: "Garçon",
     dateNaissance:  new Date(2023,3,1),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 8,
@@ -95,10 +130,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Harper",
     genre: "Garçon",
     dateNaissance:  new Date(2022,2,7),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 9,
@@ -106,10 +139,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Debra",
     genre: "Fille",
     dateNaissance:  new Date(2022,6,29),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 10,
@@ -117,10 +148,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Alyce",
     genre: "Fille",
     dateNaissance:  new Date(2023,9,31),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 11,
@@ -128,10 +157,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Shannon",
     genre: "Garçon",
     dateNaissance:  new Date(2022,1,2),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 12,
@@ -139,10 +166,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Rose",
     genre: "Garçon",
     dateNaissance:  new Date(2023,8,22),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 13,
@@ -150,10 +175,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Elaine",
     genre: "Fille",
     dateNaissance:  new Date(2022,5,24),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 14,
@@ -161,10 +184,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Hughes",
     genre: "Garçon",
     dateNaissance:  new Date(2022,9,28),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 15,
@@ -172,10 +193,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Morris",
     genre: "Garçon",
     dateNaissance:  new Date(2023,9,31),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 16,
@@ -183,10 +202,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Gentry",
     genre: "Garçon",
     dateNaissance:  new Date(2023,3,28),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 17,
@@ -194,10 +211,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Nora",
     genre: "Fille",
     dateNaissance:  new Date(2022,5,22),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 18,
@@ -205,10 +220,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Stone",
     genre: "Garçon",
     dateNaissance:  new Date(2023,11,28),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 19,
@@ -216,10 +229,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Brady",
     genre: "Garçon",
     dateNaissance:  new Date(2022,7,5),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 20,
@@ -227,10 +238,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Terri",
     genre: "Fille",
     dateNaissance:  new Date(2023,8,10),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 21,
@@ -238,10 +247,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Bernadine",
     genre: "Fille",
     dateNaissance:  new Date(2023,3,14),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 22,
@@ -249,10 +256,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Odom",
     genre: "Garçon",
     dateNaissance:  new Date(2023,9,7),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 23,
@@ -260,10 +265,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Gina",
     genre: "Fille",
     dateNaissance:  new Date(2022,10,13),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 24,
@@ -271,10 +274,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Fern",
     genre: "Fille",
     dateNaissance:  new Date(2022,6,3),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 25,
@@ -282,10 +283,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Lucas",
     genre: "Garçon",
     dateNaissance:  new Date(2022,11,1),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 26,
@@ -293,10 +292,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Alisa",
     genre: "Fille",
     dateNaissance:  new Date(2023,3,5),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 27,
@@ -304,10 +301,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Marva",
     genre: "Fille",
     dateNaissance:  new Date(2023,3,7),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 28,
@@ -315,10 +310,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Silvia",
     genre: "Fille",
     dateNaissance:  new Date(2022,7,12),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   },
   {
     id: 29,
@@ -326,10 +319,8 @@ export const ENFANTS: Enfant[] = [
     prenom: "Carrie",
     genre: "Fille",
     dateNaissance:  new Date(2023,11,20),
-    infoDivers: undefined,
-    infoAlimentaire:  undefined,
-    parents:  undefined,
-    contacts:  undefined
+
+
   }
 ];
 
