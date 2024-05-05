@@ -2,27 +2,9 @@
   <H2>Liste des enfants</H2>
 </div>
 <div fxLayout="row" class="liste-enfants m4 s6">
-  <div
-    *ngFor="let item of enfantList$ | async">
-    <mat-card class="mat-card-liste-enfants">
-      <mat-card-header>
-        <mat-card-title-group>
-          <mat-card-title>{{ item.nom }}</mat-card-title>
-          <mat-card-subtitle>{{ item.prenom }}</mat-card-subtitle>
-          <img [src]="getImage(item.genre)" mat-card-avatar alt="">
-        </mat-card-title-group>
-      </mat-card-header>
-      <mat-card-content>
-        <mat-divider style="margin: 10px;"></mat-divider>
-        <div class="input-wrapper">
-          <img class="input-icon" ngSrc="assets/images/gateau-anniversaire.png" alt="" height="32" width="32">
-          <mat-label class="plainInput mat-typography">
-            {{ item.dateNaissance | date:"dd/MM/yyyy" }}
-          </mat-label>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </div>
+  @for (item of enfantList$ | async; track item.id) {
+    <app-card-enfant-list [item]="item" [getImage]="getImage"></app-card-enfant-list>
+  }
 </div>
 
 
