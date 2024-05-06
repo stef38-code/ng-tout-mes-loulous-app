@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Enfant} from "@model/enfant";
-import {catchError, Observable, of, tap} from "rxjs";
+import {catchError, lastValueFrom, Observable, of, tap} from "rxjs";
 
 @Injectable(
 )
@@ -17,6 +17,9 @@ export class EnfantService {
     );
   }
 
+  enfantListAsPromise(): Promise<Enfant[]> {
+    return lastValueFrom<Enfant[]>(this.getEnfantList());
+  }
   getEnfantById(id: number):Observable<Enfant| undefined> {
     return this.httpClient.get<Enfant>(`api/enfants/${id}`).pipe(
       tap((enfant) => this.log(enfant)),

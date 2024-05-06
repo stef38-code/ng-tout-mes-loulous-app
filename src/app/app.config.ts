@@ -11,10 +11,10 @@ import {provideClientHydration} from "@angular/platform-browser";
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideClientHydration(),
     provideRouter(routes),
     provideAnimationsAsync(),
     provideAnimations(),
-    provideClientHydration(),
     importProvidersFrom(HttpClientModule),
     importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false}))
   ]

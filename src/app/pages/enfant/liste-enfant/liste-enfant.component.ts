@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {EnfantService} from "@core/services/enfant-service.service";
 import {Enfant} from "@core/model/enfant";
 import {Observable} from "rxjs";
@@ -9,6 +9,7 @@ import {MatLabel} from "@angular/material/form-field";
 import {MatIcon} from "@angular/material/icon";
 import {MatDivider} from "@angular/material/divider";
 import {CardEnfantListComponent} from "@pages/enfant/liste-enfant/card-enfant-list/card-enfant-list.component";
+import {EnfantsStore} from "../../../data/enfants-store";
 
 
 @Component({
@@ -26,13 +27,16 @@ import {CardEnfantListComponent} from "@pages/enfant/liste-enfant/card-enfant-li
     MatDivider,
     CardEnfantListComponent
   ],
-  providers:[EnfantService],
+  providers: [EnfantService, EnfantsStore],
   templateUrl: './liste-enfant.component.html',
   styleUrl: './liste-enfant.component.scss'
 })
 export class ListeEnfantComponent implements OnInit{
+  store = inject(EnfantsStore)
   enfantList$: Observable<Enfant[]>;
+  enfantArray: Enfant[];
   constructor(private enfantService: EnfantService) {
+    this.store.loadEnfant();
   }
 
   ngOnInit(): void {
