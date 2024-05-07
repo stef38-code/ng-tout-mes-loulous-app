@@ -20,6 +20,6 @@ export class EditEnfantComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(getState(this.store))
-    this.current = this.store.current();
+    this.current = this.store.enfantAEditer();
   }
 }

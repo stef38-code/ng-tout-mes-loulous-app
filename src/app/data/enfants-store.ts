@@ -25,13 +25,13 @@ export const EnfantsStore = signalStore(
     async loadEnfant() {
       patchState(store, ({loading: true}));
       const response: Enfant[] = await enfantService.enfantListAsPromise();
-      patchState(store, {enfantsList: response});
-      patchState(store, {loading: false});
+      patchState(store, ({enfantsList: response}));
+      patchState(store, ({loading: false}));
       const state = getState(store);
       console.log("Dans le store:", state);
     },
     selectEnfant(enfant: Enfant) {
-      patchState(store, {current: enfant});
+      patchState(store, ({current: enfant}));
       console.log("selectEnfant Dans le store:", getState(store));
     }
   })),
@@ -40,8 +40,8 @@ export const EnfantsStore = signalStore(
     enfants: computed(() => enfantsList()),
     enfantsCount: computed(() => enfantsList().length),
   })),
-  withComputed(({current}) => ({
-    enfantAEditer: computed(() => current()),
+  withComputed((store) => ({
+    enfantAEditer: computed(() => store.current()),
   })),
   /*withHooks({
     onInit(store) {
