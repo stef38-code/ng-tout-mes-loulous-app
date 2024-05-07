@@ -2,7 +2,7 @@ import {Component, inject, OnInit} from '@angular/core';
 import {EnfantService} from "@core/services/enfant-service.service";
 import {Enfant} from "@core/model/enfant";
 import {Observable} from "rxjs";
-import {AsyncPipe, DatePipe, NgForOf, NgOptimizedImage} from "@angular/common";
+import {AsyncPipe, DatePipe, JsonPipe, NgForOf, NgOptimizedImage} from "@angular/common";
 import {MatCardModule} from "@angular/material/card";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatLabel} from "@angular/material/form-field";
@@ -25,24 +25,25 @@ import {EnfantsStore} from "../../../data/enfants-store";
     NgOptimizedImage,
     MatIcon,
     MatDivider,
-    CardEnfantListComponent
+    CardEnfantListComponent,
+    JsonPipe
   ],
   providers: [EnfantService, EnfantsStore],
   templateUrl: './liste-enfant.component.html',
   styleUrl: './liste-enfant.component.scss'
 })
 export class ListeEnfantComponent implements OnInit{
-  store = inject(EnfantsStore)
+  readonly store = inject(EnfantsStore)
   enfantList$: Observable<Enfant[]>;
   enfantArray: Enfant[];
   constructor(private enfantService: EnfantService) {
-    this.store.loadEnfant();
+
   }
 
   ngOnInit(): void {
     this.enfantList$ = this.enfantService
       .getEnfantList();
-
+    this.store.loadEnfant();
   }
 
   getImage(genre: string): string {

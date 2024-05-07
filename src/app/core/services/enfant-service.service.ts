@@ -28,7 +28,8 @@ export class EnfantService {
     );
   }
   private log(enfantList: Enfant[]|Enfant|undefined):void {
-    console.table(enfantList);
+    //console.table(enfantList);
+    //
   }
   private handlerError(error: Error, errorValue: any):Observable<any>{
     console.error(error);
