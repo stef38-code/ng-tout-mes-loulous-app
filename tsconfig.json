@@ -23,6 +23,9 @@
       "dom"
     ],
     "paths": {
+      "@data/*": [
+        "./src/app/data/*"
+      ],
       "@layout/*": [
         "./src/app/layout/*"
       ],
@@ -34,6 +37,12 @@
       ],
       "@model/*": [
         "./src/app/core/model/*"
+      ],
+      "@assert/*": [
+        "./src/assert/*"
+      ],
+      "@images/*": [
+        "./src/assert/images/*"
       ]
     }
   },

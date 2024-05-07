@@ -1,6 +1,6 @@
 <mat-card class="mat-card-liste-enfants"
-          onClick="goToEditEnfant(item)"
-          onKeyDown="goToEditEnfant(item)"
+          (click)="goToEditEnfant(item)"
+          (keydown)="goToEditEnfant(item)"
           enfantBorderCard="#673ab7">
   <mat-card-header>
     <mat-card-title-group>

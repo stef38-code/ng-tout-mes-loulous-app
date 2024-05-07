@@ -7,6 +7,9 @@ import {DatePipe, NgOptimizedImage} from "@angular/common";
 import {
   EnfantBorderCardDirective
 } from "@pages/enfant/liste-enfant/card-enfant-list/directives/enfant-border-card.directive";
+import {EnfantsStore} from "@data/enfants-store";
+import {Router} from "@angular/router";
+import {getState} from "@ngrx/signals";
 
 @Component({
   selector: 'app-card-enfant-list',
@@ -19,15 +22,29 @@ import {
     NgOptimizedImage,
     EnfantBorderCardDirective
   ],
+  providers: [EnfantsStore],
   templateUrl: './card-enfant-list.component.html',
   styleUrl: './card-enfant-list.component.scss'
 })
 export class CardEnfantListComponent {
 
+  constructor(private router: Router, readonly store: EnfantsStore) {
+  }
+
   @Input() item: Enfant;
-  @Input() getImage: (genre: string) => string;
+
 
   goToEditEnfant(enfant: Enfant) {
+    console.log("ici");
+    this.store.selectEnfant(enfant);
+    console.log("goToEditEnfant Dans le store:", getState(this.store));
+    this.router.navigate(['/enfant/editer']);
+  }
 
+  getImage(genre: string): string {
+    if (genre == "Fille") {
+      return "assets/images/icons8-fille-48.png";
+    }
+    return "assets/images/icons8-garçon-48.png";
   }
 }

@@ -1,10 +1,9 @@
 <div fxLayout="row" class="title-page">
   <H2>Liste des enfants</H2>
 </div>
-<!--<p>Books: {{ store.getListe() | json }}</p>-->
 <div fxLayout="row" class="liste-enfants m4 s6">
-  @for (item of enfantList$ | async; track item.id) {
-    <app-card-enfant-list [item]="item" [getImage]="getImage"></app-card-enfant-list>
+  @for (item of store.enfants(); track item.id) {
+    <app-card-enfant-list [item]="item"></app-card-enfant-list>
   }
 </div>
 
