@@ -1,25 +1,27 @@
-import {Component, OnInit} from '@angular/core';
-import {EnfantsStore} from "@data/enfants-store";
+import {Component} from '@angular/core';
 import {Enfant} from "@model/enfant";
-import {EnfantService} from "@core/services/enfant-service.service";
-import {getState} from "@ngrx/signals";
+import {AsyncPipe, NgIf} from "@angular/common";
+import {Observable} from "rxjs";
+import {currentSelector} from "@core/store/store.selector";
+import {Store} from "@ngrx/store";
+import {AppState} from "@core/store/store";
 
 @Component({
   selector: 'app-edit-enfant',
   standalone: true,
-  imports: [],
-  providers: [EnfantService, EnfantsStore],
+  imports: [
+    NgIf,
+    AsyncPipe
+  ],
+  providers: [],
   templateUrl: './edit-enfant.component.html',
   styleUrl: './edit-enfant.component.scss'
 })
-export class EditEnfantComponent implements OnInit {
-  current: Enfant;
+export class EditEnfantComponent {
+  current$: Observable<Enfant>;
 
-  constructor(readonly store: EnfantsStore) {
+  constructor(private store: Store<AppState>) {
+    this.current$ = this.store.select(currentSelector);
   }
 
-  ngOnInit(): void {
-    console.log(getState(this.store))
-    this.current = this.store.enfantAEditer();
-  }
 }

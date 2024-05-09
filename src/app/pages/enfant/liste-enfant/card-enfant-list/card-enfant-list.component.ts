@@ -7,9 +7,10 @@ import {DatePipe, NgOptimizedImage} from "@angular/common";
 import {
   EnfantBorderCardDirective
 } from "@pages/enfant/liste-enfant/card-enfant-list/directives/enfant-border-card.directive";
-import {EnfantsStore} from "@data/enfants-store";
 import {Router} from "@angular/router";
-import {getState} from "@ngrx/signals";
+import {Store} from "@ngrx/store";
+import {AppState} from "@core/store/store";
+import * as EnfantsActions from '@core/store/store.actions';
 
 @Component({
   selector: 'app-card-enfant-list',
@@ -22,22 +23,21 @@ import {getState} from "@ngrx/signals";
     NgOptimizedImage,
     EnfantBorderCardDirective
   ],
-  providers: [EnfantsStore],
+  providers: [],
   templateUrl: './card-enfant-list.component.html',
   styleUrl: './card-enfant-list.component.scss'
 })
 export class CardEnfantListComponent {
 
-  constructor(private router: Router, readonly store: EnfantsStore) {
+  constructor(private router: Router, private store: Store<AppState>) {
+
   }
 
   @Input() item: Enfant;
 
 
   goToEditEnfant(enfant: Enfant) {
-    console.log("ici");
-    this.store.selectEnfant(enfant);
-    console.log("goToEditEnfant Dans le store:", getState(this.store));
+    this.store.dispatch(EnfantsActions.selectEnfant({enfant}));
     this.router.navigate(['/enfant/editer']);
   }
 

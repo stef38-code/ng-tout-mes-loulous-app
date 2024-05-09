@@ -2,9 +2,10 @@
   <H2>Liste des enfants</H2>
 </div>
 <div fxLayout="row" class="liste-enfants m4 s6">
-  @for (item of store.enfants(); track item.id) {
-    <app-card-enfant-list [item]="item"></app-card-enfant-list>
-  }
+  <div *ngFor="let enfant of enfants$ | async; trackBy: trackByFn; let i = index">
+    <app-card-enfant-list [item]="enfant"></app-card-enfant-list>
+  </div>
 </div>
+
 
 

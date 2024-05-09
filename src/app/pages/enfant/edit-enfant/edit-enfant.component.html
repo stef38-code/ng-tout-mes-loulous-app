@@ -1,5 +1,3 @@
-<div>
-  @if (current) {
-    <p> {{ current.nom }}</p>
-  }
+<div *ngIf="current$  | async as enfant">
+  <p> {{ enfant.nom }}</p>
 </div>

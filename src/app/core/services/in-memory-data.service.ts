@@ -8,11 +8,9 @@ import {enfants} from "./in-memory.data";
 export class InMemoryDataService implements InMemoryDbService {
 
   constructor() {
-    console.log("========================>InMemoryDataService");
   }
 
   createDb() {
-    console.log("========================>InMemoryDataService:createDb");
     return {enfants};
   }
 }
