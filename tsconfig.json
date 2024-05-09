@@ -3,7 +3,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
-    "strict": true,
+    "strict": false,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -21,7 +21,30 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@data/*": [
+        "./src/app/data/*"
+      ],
+      "@layout/*": [
+        "./src/app/layout/*"
+      ],
+      "@pages/*": [
+        "./src/app/pages/*"
+      ],
+      "@core/*": [
+        "./src/app/core/*"
+      ],
+      "@model/*": [
+        "./src/app/core/model/*"
+      ],
+      "@assert/*": [
+        "./src/assert/*"
+      ],
+      "@images/*": [
+        "./src/assert/images/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

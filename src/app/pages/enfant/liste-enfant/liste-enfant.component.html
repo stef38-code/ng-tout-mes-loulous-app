@@ -1,0 +1,11 @@
+<div fxLayout="row" class="title-page">
+  <H2>Liste des enfants</H2>
+</div>
+<div fxLayout="row" class="liste-enfants m4 s6">
+  <div *ngFor="let enfant of enfants$ | async; trackBy: trackByFn; let i = index">
+    <app-card-enfant-list [item]="enfant"></app-card-enfant-list>
+  </div>
+</div>
+
+
+

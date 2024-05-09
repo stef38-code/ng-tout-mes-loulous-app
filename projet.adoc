@@ -10,6 +10,7 @@ Firstname Lastname <author@asciidoctor.org>
 == Modules
 
 === Layout
+* https://stackblitz.com/edit/angular-responsive-layout[angular-responsive-layout]
 
 === Pages
 

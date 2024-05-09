@@ -1,0 +1,16 @@
+.toolBarButton, .drawerButton {
+  padding: 10px;
+}
+
+.mat-drawer-container {
+  width: 100%;
+  height: calc(100vh - 64px);   // calc(100vh - 64px) can be used if there is navbar at the top
+}
+
+.mat-drawer-content {
+  height: 100%;
+  width: 100%;
+  border: red;
+  border-style: double;
+}
+
