@@ -1,28 +1,2 @@
-.page-edit {
-  display: flex;
-  flex-direction: row; /* Disposition en ligne (colonnes) */
-  width: 100%; /* Prendre toute la largeur disponible */
-  height: 100%;
-}
 
-.page-edit-colonne {
-  flex: 1; /* Prendre la même largeur pour chaque colonne */
-  padding: 10px; /* Espacement autour du contenu */
-  border: 1px solid #ccc; /* Bordure pour séparer les colonnes */
-}
-
-/* Responsive : Ajuster la largeur des colonnes sur des écrans plus petits */
-@media (max-width: 768px) {
-  .page-edit-colonne {
-    flex: 1 0 50%; /* 50% de la largeur sur mobile, minimum 0 */
-  }
-}
-
-.colonne-1-3 {
-  flex: 0 0 33.33%; /* Largeur de 1/3 */
-}
-
-.colonne-2-3 {
-  flex: 0 0 66.66%; /* Largeur de 2/3 */
-}
 

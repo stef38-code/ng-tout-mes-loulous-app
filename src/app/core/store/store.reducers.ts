@@ -22,6 +22,7 @@ export const enfantReducer = createReducer(
 
   on(EnfantsActions.loadEnfantsFailure, (state, {error}) => ({...state, error, loading: false})),
   on(EnfantsActions.selectEnfant, (state, {enfant}) => ({...state, current: enfant})),
+  on(EnfantsActions.selectOneEnfant, state => ({...state, current: state.enfants[0]})),
   /*
 
    on(TodoActions.addTodo, (state, { todo }) => ({ ...state, todos: [...state.todos, todo] })),

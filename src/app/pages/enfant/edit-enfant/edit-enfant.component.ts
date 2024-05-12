@@ -8,6 +8,7 @@ import {AppState} from "@core/store/store";
 import {CardEnfantEditComponent} from "@pages/enfant/edit-enfant/card-enfant-edit/card-enfant-edit.component";
 import {CardParentEditComponent} from "@pages/enfant/edit-enfant/card-parent-edit/card-parent-edit.component";
 import {FlexModule} from "@angular/flex-layout";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-edit-enfant',
@@ -19,7 +20,8 @@ import {FlexModule} from "@angular/flex-layout";
     CardEnfantEditComponent,
     CardParentEditComponent,
     NgForOf,
-    FlexModule
+    FlexModule,
+    RouterLink
   ],
   providers: [],
   templateUrl: './edit-enfant.component.html',
@@ -31,5 +33,6 @@ export class EditEnfantComponent {
   constructor(private store: Store<AppState>) {
     this.current$ = this.store.select(currentSelector);
   }
+
 
 }

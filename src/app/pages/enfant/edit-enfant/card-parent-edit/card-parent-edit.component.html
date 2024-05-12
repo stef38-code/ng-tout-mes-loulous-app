@@ -1,9 +1,7 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title class="center">Parent {{ index + 1 }}</mat-card-title>
-  </mat-card-header>
+<mat-card class="no-border-panel">
+  <mat-card-title class="title-panel">Parent {{ index + 1 }}</mat-card-title>
   <mat-card-content>
-    <edit-civilite-personne [personne]="parent" [isParent]="true"></edit-civilite-personne>
+    <edit-civilite-personne [isParent]="true" [personne]="parent"></edit-civilite-personne>
     <edit-adresse-personne [adresse]="parent.adresse"></edit-adresse-personne>
   </mat-card-content>
 </mat-card>

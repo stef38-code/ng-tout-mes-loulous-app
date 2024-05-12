@@ -8,6 +8,8 @@ import {MatInput} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgIf} from "@angular/common";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
+import {FlexModule} from "@angular/flex-layout";
+import {MatCard, MatCardContent, MatCardTitle} from "@angular/material/card";
 
 @Component({
   selector: 'edit-civilite-personne',
@@ -24,7 +26,11 @@ import {MatButtonToggleModule} from "@angular/material/button-toggle";
     ReactiveFormsModule,
     FormsModule,
     NgIf,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    FlexModule,
+    MatCard,
+    MatCardContent,
+    MatCardTitle
   ],
   providers: [provideNativeDateAdapter(),
     {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
