@@ -1,0 +1,13 @@
+.cartes-en-colonnes {
+  display: flex; /* Ou display: grid */
+  flex-wrap: wrap; /* Permet aux cartes de s'empiler sur plusieurs lignes */
+  justify-content: space-between; /* Répartit les cartes uniformément */
+  width: 100%; /* Largeur totale du conteneur */
+}
+
+.carte {
+  flex: 1 0 30%; /* Largeur flexible, minimum 30% */
+  margin: 10px; /* Espacement entre les cartes */
+  padding: 20px; /* Rembourrage autour du contenu de la carte */
+  border: 1px solid #ccc; /* Bordure pour séparer les cartes */
+}

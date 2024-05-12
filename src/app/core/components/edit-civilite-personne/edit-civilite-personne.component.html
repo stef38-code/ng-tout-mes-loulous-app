@@ -1,0 +1,39 @@
+<div>
+  <mat-checkbox
+    *ngIf="isParent"
+    [ngModel]="personne.divorcer"
+    color="primary">Divorcé
+  </mat-checkbox>
+</div>
+<div>
+  <!-- genre -->
+  <mat-button-toggle-group [value]="personne.genre" [(ngModel)]="personne.genre" name="genre">
+    <mat-button-toggle value="F">
+      Madame
+    </mat-button-toggle>
+    <mat-button-toggle value="M">
+      Monsieur
+    </mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Nom:</mat-label>
+    <input matInput [ngModel]="personne.nom">
+  </mat-form-field>
+</div>
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Prénom:</mat-label>
+    <input matInput [ngModel]="personne.prenom">
+  </mat-form-field>
+</div>
+<div>
+  <mat-form-field appearance="fill">
+    <mat-label>Date de naissance</mat-label>
+    <input [matDatepicker]="picker" [max]="maxDate" matInput [(ngModel)]="personne.dateNaissance" name="dateNaiss">
+    <mat-datepicker-toggle [for]="picker" matIconSuffix></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>
+

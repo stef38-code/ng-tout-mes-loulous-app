@@ -1,3 +1,18 @@
 <div *ngIf="current$  | async as enfant">
-  <p> {{ enfant.nom }}</p>
+  <div class="page-edit">
+    <!--enfant -->
+    <div class="page-edit-colonne colonne-1-3">
+      <card-enfant-edit [item]="enfant"></card-enfant-edit>
+    </div>
+    <!-- parents -->
+    <div class="page-edit-colonne colonne-2-3">
+      <div class="cartes-en-colonnes" fxLayout="row">
+        <div *ngFor="let parent of enfant.parents; let i = index">
+          <div class="carte">
+            <card-parent-edit [index]="i" [parent]="parent"></card-parent-edit>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

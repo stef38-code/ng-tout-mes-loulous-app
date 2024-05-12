@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <span>Adresse</span>
+  </div>
+  <div class="panel-body">
+    <mat-form-field appearance="fill">
+      <mat-label>Rue:</mat-label>
+      <input matInput [ngModel]="adresse.rue">
+    </mat-form-field>
+    <div class="form-group col-xs-6">
+      <!-- codePostal -->
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Code postal:</mat-label>
+          <input matInput [ngModel]="adresse.codePostal">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="form-group col-xs-6">
+      <!-- ville -->
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Ville:</mat-label>
+          <input matInput [ngModel]="adresse.ville">
+        </mat-form-field>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,17 +1,25 @@
 import {Component} from '@angular/core';
 import {Enfant} from "@model/enfant";
-import {AsyncPipe, NgIf} from "@angular/common";
+import {AsyncPipe, DatePipe, NgForOf, NgIf} from "@angular/common";
 import {Observable} from "rxjs";
 import {currentSelector} from "@core/store/store.selector";
 import {Store} from "@ngrx/store";
 import {AppState} from "@core/store/store";
+import {CardEnfantEditComponent} from "@pages/enfant/edit-enfant/card-enfant-edit/card-enfant-edit.component";
+import {CardParentEditComponent} from "@pages/enfant/edit-enfant/card-parent-edit/card-parent-edit.component";
+import {FlexModule} from "@angular/flex-layout";
 
 @Component({
   selector: 'app-edit-enfant',
   standalone: true,
   imports: [
     NgIf,
-    AsyncPipe
+    AsyncPipe,
+    DatePipe,
+    CardEnfantEditComponent,
+    CardParentEditComponent,
+    NgForOf,
+    FlexModule
   ],
   providers: [],
   templateUrl: './edit-enfant.component.html',
