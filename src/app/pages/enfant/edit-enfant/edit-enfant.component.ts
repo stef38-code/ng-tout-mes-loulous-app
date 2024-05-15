@@ -6,7 +6,7 @@ import {currentSelector} from "@core/store/store.selector";
 import {Store} from "@ngrx/store";
 import {AppState} from "@core/store/store";
 import {CardEnfantEditComponent} from "@pages/enfant/edit-enfant/card-enfant-edit/card-enfant-edit.component";
-import {CardParentEditComponent} from "@pages/enfant/edit-enfant/card-parent-edit/card-parent-edit.component";
+import {CardParentEditComponent} from "@pages/parent/card-parent-edit/card-parent-edit.component";
 import {FlexModule} from "@angular/flex-layout";
 import {RouterLink} from "@angular/router";
 

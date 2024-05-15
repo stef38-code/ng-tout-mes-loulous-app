@@ -11,6 +11,8 @@ import {Router} from "@angular/router";
 import {Store} from "@ngrx/store";
 import {AppState} from "@core/store/store";
 import * as EnfantsActions from '@core/store/store.actions';
+import {FlexModule} from "@angular/flex-layout";
+import {MatButtonModule} from "@angular/material/button";
 
 @Component({
   selector: 'app-card-enfant-list',
@@ -21,7 +23,9 @@ import * as EnfantsActions from '@core/store/store.actions';
     MatLabel,
     DatePipe,
     NgOptimizedImage,
-    EnfantBorderCardDirective
+    EnfantBorderCardDirective,
+    FlexModule,
+    MatButtonModule
   ],
   providers: [],
   templateUrl: './card-enfant-list.component.html',
@@ -46,5 +50,15 @@ export class CardEnfantListComponent {
       return "assets/images/icons8-fille-48.png";
     }
     return "assets/images/icons8-garçon-48.png";
+  }
+
+  goToEditParents(enfant: Enfant) {
+    this.store.dispatch(EnfantsActions.selectEnfant({enfant}));
+    this.router.navigate(['/parents/editer']);
+  }
+
+  goToEditContacts(enfant: Enfant) {
+    this.store.dispatch(EnfantsActions.selectEnfant({enfant}));
+    this.router.navigate(['/contacts/editer']);
   }
 }

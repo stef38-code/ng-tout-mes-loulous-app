@@ -2,4 +2,38 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.no-border-panel-card {
+  box-shadow: none !important;
+  padding: 5px;
+}
 
+.no-border-title-panel-card {
+  display: flex !important;
+  justify-content: center;
+}
+
+.border-title-panel-card {
+  display: flex !important;
+  justify-content: center;
+  background: #bfbdbd;
+  border: 1px solid #000;
+}
+
+.centered-row {
+  display: flex; /* Optional, for Flexbox behavior */
+  flex-direction: row;
+  flex: 1;
+  justify-content: center;
+  gap: 10px; /* Définir le padding entre les éléments */
+}
+
+.flex-row {
+  display: flex; /* Optional, for Flexbox behavior */
+  flex-direction: row;
+  flex: 1;
+  gap: 10px; /* Définir le padding entre les éléments */
+}
+
+.mat-padding-10 {
+  padding: 10px !important;
+}

@@ -9,6 +9,11 @@ import {MAT_DATE_LOCALE, provideNativeDateAdapter} from "@angular/material/core"
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {EditCivilitePersonneComponent} from "@core/components/edit-civilite-personne/edit-civilite-personne.component";
 import {EditAdressePersonneComponent} from "@core/components/edit-adresse-personne/edit-adresse-personne.component";
+import {
+  EditTelephonePersonneComponent
+} from "@core/components/edit-telephone-personne/edit-telephone-personne.component";
+import {EditEmailPersonneComponent} from "@core/components/edit-email-personne/edit-email-personne.component";
+import {FlexModule} from "@angular/flex-layout";
 
 @Component({
   selector: 'card-parent-edit',
@@ -24,7 +29,10 @@ import {EditAdressePersonneComponent} from "@core/components/edit-adresse-person
     FormsModule,
     MatCheckboxModule,
     EditCivilitePersonneComponent,
-    EditAdressePersonneComponent
+    EditAdressePersonneComponent,
+    EditTelephonePersonneComponent,
+    EditEmailPersonneComponent,
+    FlexModule
   ],
   providers: [provideNativeDateAdapter(),
     {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},

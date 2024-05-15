@@ -1,13 +1,6 @@
 <!-- 100 % hauteur et largeur -->
 <div *ngIf="current$  | async as enfant" fxFlexFill fxLayout="row">
-  <div fxFlex="30%" style="background: red">
+  <div fxFlex>
     <card-enfant-edit [item]="enfant"></card-enfant-edit>
-  </div>
-  <div fxFlex="70%" style="background: yellow;">
-    <div fxFlexFill fxLayout="row">
-      <div *ngFor="let parent of enfant.parents; let i = index" fxFlex>
-        <card-parent-edit [index]="i" [parent]="parent"></card-parent-edit>
-      </div>
-    </div>
   </div>
 </div>
