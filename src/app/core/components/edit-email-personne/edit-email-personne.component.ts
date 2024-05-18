@@ -4,7 +4,8 @@ import {MatCard, MatCardContent, MatCardTitle} from "@angular/material/card";
 import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from "@angular/material/datepicker";
 import {MatFormField, MatLabel, MatSuffix} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FlexModule} from "@angular/flex-layout";
 
 @Component({
   selector: 'edit-email-personne',
@@ -20,7 +21,9 @@ import {ReactiveFormsModule} from "@angular/forms";
     MatInput,
     MatLabel,
     MatSuffix,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FlexModule,
+    FormsModule
   ],
   templateUrl: './edit-email-personne.component.html',
   styleUrl: './edit-email-personne.component.scss'

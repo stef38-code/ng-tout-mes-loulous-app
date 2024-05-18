@@ -4,7 +4,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .no-border-panel-card {
   box-shadow: none !important;
-  padding: 5px;
+  padding-top: 1px;
 }
 
 .no-border-title-panel-card {
@@ -12,11 +12,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   justify-content: center;
 }
 
+.border-title-panel-card-editor {
+  display: flex !important;
+  justify-content: left;
+  color: cadetblue;
+}
+
+
 .border-title-panel-card {
   display: flex !important;
   justify-content: center;
-  background: #bfbdbd;
-  border: 1px solid #000;
 }
 
 .centered-row {
@@ -27,6 +32,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   gap: 10px; /* Définir le padding entre les éléments */
 }
 
+.flex-column-p5 {
+  display: flex; /* Optional, for Flexbox behavior */
+  flex-direction: column;
+  flex: 1;
+  gap: 5px; /* Définir le padding entre les éléments */
+  padding: 5px 0 5px 0
+}
+
+.flex-row-p5 {
+  display: flex; /* Optional, for Flexbox behavior */
+  flex-direction: row;
+  flex: 1;
+  gap: 5px; /* Définir le padding entre les éléments */
+  padding: 5px 0 5px 0
+}
 .flex-row {
   display: flex; /* Optional, for Flexbox behavior */
   flex-direction: row;
@@ -34,6 +54,32 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   gap: 10px; /* Définir le padding entre les éléments */
 }
 
+.mat-form-field { /* Changes the input styling to just about nothing so that button styling can take over */
+  font-size: 1px !important;
+}
 .mat-padding-10 {
   padding: 10px !important;
 }
+
+.card-container-left {
+  display: inline;
+}
+
+.title-page-liste-enfants {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.liste-enfants {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.card-container-right {
+  display: inline;
+  float: right;
+}
+
+

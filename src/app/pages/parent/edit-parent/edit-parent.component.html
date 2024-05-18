@@ -1,15 +1,15 @@
 @if (current$ | async; as enfant) {
   @if (enfant.parents) {
-    <section fxFlexFill fxLayout="row">
-      <div fxFlexFill fxLayout="column">
+    <section fxLayout="row">
+      <div fxFlex fxLayout="column">
         <section fxFlex>
-          <div fxFlexFill fxLayout="row">
+          <div class="centered-row">
             <div *ngFor="let parent of enfant.parents; let i = index" fxFlex>
               <card-parent-edit [index]="i" [parent]="parent"></card-parent-edit>
             </div>
           </div>
         </section>
-        <section fxFlexFill class="centered-row">
+        <section class="centered-row">
           <button mat-flat-button color="primary"
                   class="mat-padding-10"
                   (click)="goToListEnfant(enfant)"

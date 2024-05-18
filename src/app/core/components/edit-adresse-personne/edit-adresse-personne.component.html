@@ -1,21 +1,21 @@
 <mat-card class="no-border-panel-card">
-  <mat-card-title class="border-title-panel-card">Adresse</mat-card-title>
-  <mat-card-content>
-    <div fxFlexFill fxLayout="column" style="padding: 10px 0 10px 0">
-      <mat-form-field appearance="fill" fxFlex>
+  <mat-card-title class="border-title-panel-card-editor">Adresse</mat-card-title>
+  <mat-card-content style="padding-bottom:0;">
+    <div class="flex-column-p5">
+      <mat-form-field appearance="outline" fxFlex>
         <mat-label>Rue:</mat-label>
         <input [ngModel]="adresse.rue" matInput>
       </mat-form-field>
       <div>
-        <div fxFlexFill fxLayout="row" style="padding: 10px 0 10px 0">
+        <div class="flex-row-p5">
           <div fxFlex="25%">
-            <mat-form-field appearance="fill" fxFlex>
+            <mat-form-field appearance="outline" fxFlex>
               <mat-label>Code postal:</mat-label>
               <input [ngModel]="adresse.codePostal" matInput>
             </mat-form-field>
           </div>
           <div fxFlex>
-            <mat-form-field appearance="fill" fxFlex style="padding-left: 10px">
+            <mat-form-field appearance="outline" fxFlex style="padding-left: 10px">
               <mat-label>Ville:</mat-label>
               <input [ngModel]="adresse.ville" matInput>
             </mat-form-field>

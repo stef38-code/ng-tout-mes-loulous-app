@@ -1,9 +1,9 @@
 <mat-card class="no-border-panel-card">
-  <mat-card-title class="border-title-panel-card">Civilité</mat-card-title>
-  <mat-card-content>
+  <mat-card-title class="border-title-panel-card-editor">Civilité</mat-card-title>
+  <mat-card-content style="padding-bottom:0;">
     <div fxFlexFill fxLayout="column" style="padding: 10px">
       <div>
-        <div fxFlexFill fxLayout="row" style="padding: 10px 0 10px 0">
+        <div class="flex-row-p5">
           <div fxFlex>
             <mat-button-toggle-group [(ngModel)]="personne.genre" [value]="personne.genre" name="genre">
               <mat-button-toggle value="F">
@@ -23,15 +23,15 @@
           </div>
         </div>
         <div>
-          <div fxFlexFill fxLayout="row" style="padding: 10px 0 10px 0">
+          <div class="flex-row-p5">
             <div fxFlex="50%">
-              <mat-form-field appearance="fill" fxFlex>
+              <mat-form-field appearance="outline" fxFlex>
                 <mat-label>Nom:</mat-label>
                 <input [ngModel]="personne.nom" matInput>
               </mat-form-field>
             </div>
             <div fxFlex="50%">
-              <mat-form-field appearance="fill" fxFlex style="padding-left: 10px">
+              <mat-form-field appearance="outline" fxFlex style="padding-left: 10px">
                 <mat-label>Prénom:</mat-label>
                 <input [ngModel]="personne.prenom" matInput>
               </mat-form-field>
@@ -39,7 +39,7 @@
           </div>
         </div>
         <div>
-          <mat-form-field appearance="fill">
+          <mat-form-field appearance="outline">
             <mat-label>Date de naissance</mat-label>
             <input [(ngModel)]="personne.dateNaissance" [matDatepicker]="picker" [max]="maxDate" matInput
                    name="dateNaiss">
