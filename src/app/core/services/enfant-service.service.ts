@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Enfant} from "@model/enfant";
-import {catchError, lastValueFrom, Observable, of, tap} from "rxjs";
+import {catchError, lastValueFrom, Observable, of, tap, throwError} from "rxjs";
 
 @Injectable(
 )
@@ -12,7 +12,7 @@ export class EnfantService {
   getEnfantList():Observable<Enfant[]>{
     return this.httpClient.get<Enfant[]>('api/enfants').pipe(
       tap((enfantList) => this.log(enfantList)),
-      catchError((error) =>this.handlerError(error,[])
+      catchError((error) => throwError(error)
       )
     );
   }
@@ -23,8 +23,7 @@ export class EnfantService {
   getEnfantById(id: number):Observable<Enfant| undefined> {
     return this.httpClient.get<Enfant>(`api/enfants/${id}`).pipe(
       tap((enfant) => this.log(enfant)),
-      catchError((error) =>this.handlerError(error,undefined)
-      )
+      catchError((error) => throwError(error))
     );
   }
   private log(enfantList: Enfant[]|Enfant|undefined):void {

@@ -7,12 +7,16 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {Personne} from "@model/personne";
 import {MAT_DATE_LOCALE, provideNativeDateAdapter} from "@angular/material/core";
 import {MatCheckboxModule} from "@angular/material/checkbox";
-import {EditCivilitePersonneComponent} from "@core/components/edit-civilite-personne/edit-civilite-personne.component";
-import {EditAdressePersonneComponent} from "@core/components/edit-adresse-personne/edit-adresse-personne.component";
+import {
+  EditCivilitePersonneComponent
+} from "@core/components/personne/edit-civilite-personne/edit-civilite-personne.component";
+import {
+  EditAdressePersonneComponent
+} from "@core/components/personne/edit-adresse-personne/edit-adresse-personne.component";
 import {
   EditTelephonePersonneComponent
-} from "@core/components/edit-telephone-personne/edit-telephone-personne.component";
-import {EditEmailPersonneComponent} from "@core/components/edit-email-personne/edit-email-personne.component";
+} from "@core/components/personne/edit-telephone-personne/edit-telephone-personne.component";
+import {EditEmailPersonneComponent} from "@core/components/personne/edit-email-personne/edit-email-personne.component";
 import {FlexModule} from "@angular/flex-layout";
 
 @Component({

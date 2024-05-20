@@ -4,9 +4,7 @@ import {MatCardModule} from "@angular/material/card";
 import {MatDivider} from "@angular/material/divider";
 import {MatLabel} from "@angular/material/form-field";
 import {DatePipe, NgOptimizedImage} from "@angular/common";
-import {
-  EnfantBorderCardDirective
-} from "@pages/enfant/liste-enfant/card-enfant-list/directives/enfant-border-card.directive";
+import {EnfantBorderCardDirective} from "@core/components/enfant/card-enfant/directives/enfant-border-card.directive";
 import {Router} from "@angular/router";
 import {Store} from "@ngrx/store";
 import {AppState} from "@core/store/store";
@@ -15,7 +13,7 @@ import {FlexModule} from "@angular/flex-layout";
 import {MatButtonModule} from "@angular/material/button";
 
 @Component({
-  selector: 'app-card-enfant-list',
+  selector: 'card-enfant',
   standalone: true,
   imports: [
     MatCardModule,
@@ -28,10 +26,10 @@ import {MatButtonModule} from "@angular/material/button";
     MatButtonModule
   ],
   providers: [],
-  templateUrl: './card-enfant-list.component.html',
-  styleUrl: './card-enfant-list.component.scss'
+  templateUrl: './card-enfant.component.html',
+  styleUrl: './card-enfant.component.scss'
 })
-export class CardEnfantListComponent {
+export class CardEnfantComponent {
 
   constructor(private router: Router, private store: Store<AppState>) {
 
