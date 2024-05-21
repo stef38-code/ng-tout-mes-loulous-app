@@ -47,7 +47,8 @@ export const enfants: Enfant[] = [
           {adresse: "jean.martin@exemple.com", type: "personnel"}
         ]
       }
-    ]
+    ],
+    fratrie: [2]
   }, {
     id: 1,
     nom: "Elliott",
@@ -95,6 +96,56 @@ export const enfants: Enfant[] = [
           {adresse: "nicolas.petit@exemple.com", type: "personnel"}
         ]
       }
-    ]
+    ],
+    fratrie: []
+  },
+  {
+    id: 2,
+    nom: "Leach",
+    prenom: "Julie",
+    genre: "Fille",
+    dateNaissance: new Date(2020, 2, 24),
+    parents: [
+      {
+        divorcer: true,
+        genre: "F",
+        nom: "Dupont",
+        prenom: "Marie",
+        dateNaissance: new Date(1978, 1, 1),
+        adresse: {
+          rue: "rue du Soleil",
+          codePostal: "75000",
+          ville: "Paris",
+          pays: "France"
+        },
+        telephones: [
+          {numero: "0123456789", type: "fixe"},
+          {numero: "0612345678", type: "portable"}
+        ],
+        emails: [
+          {adresse: "marie.dupont@exemple.com", type: "personnel"},
+          {adresse: "marie.dupont@professionnel.com", type: "professionnel"}
+        ]
+      }, {
+        divorcer: true,
+        genre: "M",
+        nom: "Martin",
+        prenom: "Jean",
+        dateNaissance: new Date(1985, 7, 14),
+        adresse: {
+          rue: "rue de la Lune",
+          codePostal: "13000",
+          ville: "Marseille",
+          pays: "France"
+        },
+        telephones: [
+          {numero: "0987654321", type: "fixe"}
+        ],
+        emails: [
+          {adresse: "jean.martin@exemple.com", type: "personnel"}
+        ]
+      }
+    ],
+    fratrie: [0]
   }
 ];

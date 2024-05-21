@@ -1,10 +1,12 @@
+<mat-toolbar>
+  <button mat-icon-button flex>
+    <mat-icon>person_add</mat-icon>
+  </button>
+</mat-toolbar>
 <div fxLayout="row" class="title-page-liste-enfants">
   <H2>Liste des enfants</H2>
 </div>
 <div fxLayout="row" class="liste-enfants m4 s6">
-  <div>
-    <card-enfant-new></card-enfant-new>
-  </div>
   <div *ngFor="let enfant of enfants$ | async; trackBy: trackByFn; let i = index">
     <card-enfant [item]="enfant"></card-enfant>
   </div>

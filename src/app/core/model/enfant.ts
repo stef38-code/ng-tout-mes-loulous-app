@@ -7,6 +7,7 @@ export class Enfant {
   prenom:string | undefined;
   dateNaissance: Date | undefined;
   parents: Personne[] | undefined;
+  fratrie: number[] | undefined;
   /*  infoDivers:InfoDivers[] | undefined;
     infoAlimentaire: InfoAlimentaire[] | undefined;
     parents: Personne[] | undefined;

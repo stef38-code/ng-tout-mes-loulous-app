@@ -14,6 +14,7 @@ import {Store} from "@ngrx/store";
 import {enfantsSelector} from "@core/store/store.selector";
 import * as EnfantsActions from '@core/store/store.actions';
 import {CardEnfantNewComponent} from "@core/components/enfant/card-enfant-new/card-enfant-new.component";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @Component({
   selector: 'app-liste-enfant',
@@ -32,7 +33,8 @@ import {CardEnfantNewComponent} from "@core/components/enfant/card-enfant-new/ca
     CardEnfantComponent,
     JsonPipe,
     MatButtonModule,
-    CardEnfantNewComponent
+    CardEnfantNewComponent,
+    MatToolbarModule
   ],
   providers: [],
   changeDetection: ChangeDetectionStrategy.OnPush,

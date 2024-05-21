@@ -1,25 +1,22 @@
 <mat-card class="mat-card-liste-enfants"
           enfantBorderCard="#673ab7">
   <mat-card-header>
-    <img [src]="getImage(item.genre)" mat-card-avatar alt="">
+    <!--<img [src]="getImage(item.genre)" mat-card-avatar alt="">-->
     <mat-card-title-group>
-      <mat-card-title>{{ item.nom }}</mat-card-title>
-      <mat-card-subtitle>{{ item.prenom }}</mat-card-subtitle>
+      <mat-card-title>Ajouter</mat-card-title>
+      <mat-card-subtitle>Un Enfant</mat-card-subtitle>
     </mat-card-title-group>
   </mat-card-header>
   <mat-card-content>
     <mat-divider></mat-divider>
-    <span class="material-icons-outlined">
-</span>
+    <section flex fxFlexFill>
+      <button mat-icon-button flex aria-label="Example icon button with a vertical three dot icon">
+        <mat-icon>person_add</mat-icon>
+      </button>
+    </section>
+    <!--<mat-divider></mat-divider>
     <div class="anniversaire-input">
-      <mat-icon class="anniversaire-icon" [ngStyle]="{ color: colorFlag }">diversity_3</mat-icon>
-      <mat-label class="plainInput mat-typography">
-        {{ item.dateNaissance | date:"dd/MM/yyyy" }}
-      </mat-label>
-    </div>
-    <div class="anniversaire-input">
-      <img class="anniversaire-icon" ngSrc="../../../../../assets/images/gateau-anniversaire.png" alt="" height="32"
-           width="32">
+      <img class="anniversaire-icon" ngSrc="../../../../../assets/images/gateau-anniversaire.png" alt="" height="32" width="32">
       <mat-label class="plainInput mat-typography">
         {{ item.dateNaissance | date:"dd/MM/yyyy" }}
       </mat-label>
@@ -37,6 +34,7 @@
               (click)="goToEditContacts(item)"
       >Contacts
       </button>
-    </div>
+    </div>-->
   </mat-card-content>
 </mat-card>
+
