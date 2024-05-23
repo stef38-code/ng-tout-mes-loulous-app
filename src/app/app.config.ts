@@ -7,13 +7,15 @@ import {provideAnimationsAsync} from '@angular/platform-browser/animations/async
 import {provideAnimations} from "@angular/platform-browser/animations";
 import {InMemoryDataService} from "@core/services/in-memory-data.service";
 import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {provideClientHydration} from "@angular/platform-browser";
 import {provideStoreDevtools} from "@ngrx/store-devtools";
 import {provideEffects} from '@ngrx/effects';
 import {appEffects, appStore} from "@core/store/store";
 import {EnfantService} from "@core/services/enfant-service.service";
 import {ErrorInterceptor} from "@core/services/error.interceptor";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {HttpLoaderFactory} from "./app.component";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -24,6 +26,14 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     importProvidersFrom(HttpClientModule),
     importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false})),
+    importProvidersFrom(TranslateModule.forRoot({
+      defaultLanguage: 'fr',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })),
     provideStore(appStore),
     provideEffects(appEffects),
     EnfantService,

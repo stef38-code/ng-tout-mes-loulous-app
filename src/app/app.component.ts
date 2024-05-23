@@ -6,24 +6,38 @@ import {BreakpointObserver} from "@angular/cdk/layout";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
 import {MatToolbarModule} from "@angular/material/toolbar";
-import {ToolbarComponent} from "./layout/toolbar/toolbar.component";
+import {ToolbarComponent} from "@layout/toolbar/toolbar.component";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatListItem, MatNavList} from "@angular/material/list";
-import {SidebarService} from "./layout/services/sidebar.service";
-import {SidebarItem} from "./layout/services/model/menu-sidebar.interface";
+import {SidebarService} from "@layout/services/sidebar.service";
+import {SidebarItem} from "@layout/services/model/menu-sidebar.interface";
 import {Observable} from "rxjs";
 import {AsyncPipe, NgForOf} from "@angular/common";
+import {PrimeNGConfig} from "primeng/api";
+import {TranslateService} from '@ngx-translate/core';
+import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {HttpClient} from "@angular/common/http";
+
+
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}
+
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive,
+  imports: [
+    RouterOutlet, RouterLink, RouterLinkActive,
     MatToolbarModule, MatButtonModule, MatSidenavModule,
     MatIconModule, ToolbarComponent, FlexLayoutModule, MatNavList, MatListItem, AsyncPipe, NgForOf,
+
+
   ],
   providers: [
     SidebarService,
-    { provide: MAT_DRAWER_DEFAULT_AUTOSIZE, useValue: { autosize: true } }
+    {provide: MAT_DRAWER_DEFAULT_AUTOSIZE, useValue: {autosize: true}}
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -41,7 +55,10 @@ export class AppComponent  implements OnInit,OnDestroy{
     .observe([ '(max-width: 500px)']);
   drawer: MatDrawer;
 
-  constructor(private sidebarService:SidebarService,private breakpointObserver: BreakpointObserver) {
+  constructor(
+    private primengConfig: PrimeNGConfig,
+    private translateService: TranslateService,
+    private sidebarService: SidebarService, private breakpointObserver: BreakpointObserver) {
     this.breakpoint$.subscribe(() =>
       this.breakpointChanges()
     );
@@ -67,7 +84,13 @@ export class AppComponent  implements OnInit,OnDestroy{
   }
 
   ngOnInit(): void {
-// fait rien pour l'instant
+    this.primengConfig.ripple = true;
+    this.translateService.setDefaultLang('fr');
+  }
+
+  translate(lang: string) {
+    this.translateService.use(lang);
+    this.translateService.get('primeng').subscribe(res => this.primengConfig.setTranslation(res));
   }
 
 }

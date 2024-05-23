@@ -10,6 +10,11 @@ import {NgIf} from "@angular/common";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {FlexModule} from "@angular/flex-layout";
 import {MatCard, MatCardContent, MatCardTitle} from "@angular/material/card";
+import {PanelModule} from "primeng/panel";
+import {SelectButtonModule} from "primeng/selectbutton";
+import {CheckboxModule} from "primeng/checkbox";
+import {InputTextModule} from "primeng/inputtext";
+import {CalendarModule} from "primeng/calendar";
 
 @Component({
   selector: 'edit-civilite-personne',
@@ -30,7 +35,13 @@ import {MatCard, MatCardContent, MatCardTitle} from "@angular/material/card";
     FlexModule,
     MatCard,
     MatCardContent,
-    MatCardTitle
+    MatCardTitle,
+    PanelModule,
+    SelectButtonModule,
+    CheckboxModule,
+    InputTextModule,
+    CalendarModule,
+
   ],
   providers: [provideNativeDateAdapter(),
     {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
@@ -44,7 +55,7 @@ export class EditCivilitePersonneComponent {
   @Input() personne: Personne;
   @Input() isParent: boolean = false;
   maxDate: Date;
-
+  stateOptions: any[] = [{label: 'Madame', value: 'F'}, {label: 'Monsieur', value: 'M'}];
   constructor() {
     this.maxDate = new Date();
   }

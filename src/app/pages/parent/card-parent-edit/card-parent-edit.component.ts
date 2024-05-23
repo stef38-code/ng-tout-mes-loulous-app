@@ -18,6 +18,8 @@ import {
 } from "@core/components/personne/edit-telephone-personne/edit-telephone-personne.component";
 import {EditEmailPersonneComponent} from "@core/components/personne/edit-email-personne/edit-email-personne.component";
 import {FlexModule} from "@angular/flex-layout";
+import {PanelModule} from "primeng/panel";
+import {AvatarModule} from "primeng/avatar";
 
 @Component({
   selector: 'card-parent-edit',
@@ -36,7 +38,9 @@ import {FlexModule} from "@angular/flex-layout";
     EditAdressePersonneComponent,
     EditTelephonePersonneComponent,
     EditEmailPersonneComponent,
-    FlexModule
+    FlexModule,
+    PanelModule,
+    AvatarModule
   ],
   providers: [provideNativeDateAdapter(),
     {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},

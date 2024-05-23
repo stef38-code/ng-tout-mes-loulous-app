@@ -1,3 +1,68 @@
+<p-panel class="no-border">
+  <ng-template pTemplate="header" class="no-border">
+    <div class="flex align-items-center gap-2" style="color: cadetblue;">
+      <span class="font-bold">
+                Civilité
+      </span>
+    </div>
+  </ng-template>
+  <div fxFlexFill fxLayout="column" style="padding: 10px">
+    <div>
+      <div class="flex-row-p5">
+        <div fxFlex>
+          <p-selectButton [ngModel]="personne.genre" [options]="stateOptions"></p-selectButton>
+        </div>
+        <div fxFlex>
+          <p-checkbox [ngModel]="personne.divorcer" [value]="personne.divorcer" label="Divorcé" color="primary"
+                      *ngIf="isParent"></p-checkbox>
+        </div>
+      </div>
+      <div>
+        <div class="flex-row-p5">
+          <div fxFlex="50%">
+            <div class="flex flex-column gap-2">
+              <label for="nom">Nom </label>
+              <input
+                pInputText
+                id="nom"
+                [ngModel]="personne.nom"/>
+            </div>
+          </div>
+          <div fxFlex="50%">
+            <div class="flex flex-column gap-2">
+              <label for="prenom">Prénom </label>
+              <input
+                pInputText
+                id="prenom"
+                [ngModel]="personne.prenom"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="flex flex-column gap-2">
+          <label for="dateNaiss">Date de naissance </label>
+          <p-calendar [ngModel]="personne.dateNaissance"
+                      [showIcon]="true" id="dateNaiss"
+                      dateFormat="dd/mm/yy"
+                      [maxDate]="maxDate"></p-calendar>
+        </div>
+        <!-- <mat-form-field appearance="outline">
+           <mat-label>Date de naissance</mat-label>
+           <input [(ngModel)]="personne.dateNaissance" [matDatepicker]="picker" [max]="maxDate" matInput
+                  name="dateNaiss">
+           <mat-datepicker-toggle [for]="picker" matIconSuffix></mat-datepicker-toggle>
+           <mat-datepicker #picker></mat-datepicker>
+         </mat-form-field>-->
+      </div>
+    </div>
+    <div>
+
+    </div>
+  </div>
+</p-panel>
+<!--
+
 <mat-card class="no-border-panel-card">
   <mat-card-title class="border-title-panel-card-editor">Civilité</mat-card-title>
   <mat-card-content style="padding-bottom:0;">
@@ -54,3 +119,4 @@
     </div>
   </mat-card-content>
 </mat-card>
+-->
