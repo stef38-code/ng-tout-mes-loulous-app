@@ -10,13 +10,17 @@ export class EnfantsEffects {
   loadEnfant$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loadEnfants),
-      mergeMap(() =>
-        this.enfantService.getEnfantList().pipe(
-          map((enfants) => loadEnfantsSuccess({enfants})),
-          catchError((error) =>
-            of(loadEnfantsFailure({error: error.message}))
+      mergeMap(() => {
+
+          return this.enfantService.getEnfantList().pipe(
+            map((enfants) =>
+              loadEnfantsSuccess({enfants})
+            ),
+            catchError((error) =>
+              of(loadEnfantsFailure({error: error.message}))
+            ),
           )
-        )
+        }
       )
     )
   );

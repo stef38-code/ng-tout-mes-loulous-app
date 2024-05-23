@@ -1,3 +1,6 @@
-<div *ngIf="current$  | async as enfant">
-  <p> {{ enfant.nom }}</p>
+<!-- 100 % hauteur et largeur -->
+<div *ngIf="current$  | async as enfant" fxFlexFill fxLayout="row">
+  <div fxFlex>
+    <card-enfant-edit [item]="enfant"></card-enfant-edit>
+  </div>
 </div>

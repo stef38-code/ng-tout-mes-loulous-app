@@ -1,0 +1,20 @@
+<mat-card class="no-border-panel-card">
+  <mat-card-title class="border-title-panel-card-editor">Emails</mat-card-title>
+  <mat-card-content style="padding-bottom:0;">
+    <section fxFlexFill fxLayout="column" style="padding: 10px 0 10px 0">
+      @if (emails.length > 0) {
+        @for (item of emails; track item.adresse) {
+          <div fxFlexFill fxLayout="row">
+            <mat-form-field appearance="outline" fxFlex>
+              <mat-label>{{ item.type }}</mat-label>
+              <input [ngModel]="item.adresse" matInput>
+            </mat-form-field>
+          </div>
+        } @empty {
+          <H1> There are no items.</H1>
+        }
+      }
+    </section>
+  </mat-card-content>
+</mat-card>
+

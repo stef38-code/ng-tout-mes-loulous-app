@@ -1,17 +1,27 @@
 import {Component} from '@angular/core';
 import {Enfant} from "@model/enfant";
-import {AsyncPipe, NgIf} from "@angular/common";
+import {AsyncPipe, DatePipe, NgForOf, NgIf} from "@angular/common";
 import {Observable} from "rxjs";
 import {currentSelector} from "@core/store/store.selector";
 import {Store} from "@ngrx/store";
 import {AppState} from "@core/store/store";
+import {CardEnfantEditComponent} from "@core/components/enfant/card-enfant-edit/card-enfant-edit.component";
+import {CardParentEditComponent} from "@pages/parent/card-parent-edit/card-parent-edit.component";
+import {FlexModule} from "@angular/flex-layout";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-edit-enfant',
   standalone: true,
   imports: [
     NgIf,
-    AsyncPipe
+    AsyncPipe,
+    DatePipe,
+    CardEnfantEditComponent,
+    CardParentEditComponent,
+    NgForOf,
+    FlexModule,
+    RouterLink
   ],
   providers: [],
   templateUrl: './edit-enfant.component.html',
@@ -23,5 +33,6 @@ export class EditEnfantComponent {
   constructor(private store: Store<AppState>) {
     this.current$ = this.store.select(currentSelector);
   }
+
 
 }

@@ -1,0 +1,15 @@
+<mat-card class="no-border-panel-card">
+  <mat-card-title class="border-title-panel-card">Parent {{ index + 1 }}</mat-card-title>
+  <mat-card-content style="padding-bottom:0;">
+    <edit-civilite-personne [isParent]="true" [personne]="parent"></edit-civilite-personne>
+    <edit-adresse-personne [adresse]="parent.adresse"></edit-adresse-personne>
+    <section class="flex-row-p5">
+      <div class="flex-column-p5">
+        <edit-telephone-personne [telephones]="parent.telephones"></edit-telephone-personne>
+      </div>
+      <div class="flex-column-p5">
+        <edit-email-personne [emails]="parent.emails"></edit-email-personne>
+      </div>
+    </section>
+  </mat-card-content>
+</mat-card>

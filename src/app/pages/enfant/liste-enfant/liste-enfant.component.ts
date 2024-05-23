@@ -5,7 +5,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatLabel} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatDivider} from "@angular/material/divider";
-import {CardEnfantListComponent} from "@pages/enfant/liste-enfant/card-enfant-list/card-enfant-list.component";
+import {CardEnfantComponent} from "@core/components/enfant/card-enfant/card-enfant.component";
 import {Enfant} from "@model/enfant";
 import {MatButtonModule} from "@angular/material/button";
 import {Observable} from "rxjs";
@@ -13,6 +13,8 @@ import {AppState} from "@core/store/store";
 import {Store} from "@ngrx/store";
 import {enfantsSelector} from "@core/store/store.selector";
 import * as EnfantsActions from '@core/store/store.actions';
+import {CardEnfantNewComponent} from "@core/components/enfant/card-enfant-new/card-enfant-new.component";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @Component({
   selector: 'app-liste-enfant',
@@ -28,9 +30,11 @@ import * as EnfantsActions from '@core/store/store.actions';
     NgOptimizedImage,
     MatIconModule,
     MatDivider,
-    CardEnfantListComponent,
+    CardEnfantComponent,
     JsonPipe,
-    MatButtonModule
+    MatButtonModule,
+    CardEnfantNewComponent,
+    MatToolbarModule
   ],
   providers: [],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,0 +1,28 @@
+<mat-card class="no-border-panel">
+  <mat-card-title class="title-panel">Enfant</mat-card-title>
+  <mat-card-content>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Nom:</mat-label>
+        <input matInput [ngModel]="item.nom">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Prénom:</mat-label>
+        <input matInput [ngModel]="item.prenom">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="example-full-width">
+        <mat-label>Date de naissance</mat-label>
+        <input [matDatepicker]="picker" [max]="maxDate" [min]="minDate" matInput [(ngModel)]="item.dateNaissance"
+               name="dateNaiss">
+        <mat-datepicker-toggle [for]="picker" matIconSuffix></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </p>
+
+  </mat-card-content>
+</mat-card>
+
