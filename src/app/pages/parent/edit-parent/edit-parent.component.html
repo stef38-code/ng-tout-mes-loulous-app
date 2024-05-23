@@ -10,27 +10,26 @@
           </div>
         </section>
         <section class="centered-row">
-          <button mat-flat-button color="primary"
+          <p-button
                   class="mat-padding-10"
                   (click)="goToListEnfant(enfant)"
           >Enregistrer
-          </button>
-          <button mat-flat-button color="accent"
+          </p-button>
+          <p-button mat-flat-button severity="warning"
                   class="mat-padding-10"
                   (click)="goToListEnfants()"
           >Retour
-          </button>
+          </p-button>
         </section>
       </div>
 
     </section>
   } @else {
     <section fxFlexFill class="centered-row">
-      <button mat-flat-button color="warn"
-              class="mat-padding-10"
+      <p-button severity="danger"
               (click)="goToListEnfants()"
       >Retour
-      </button>
+      </p-button>
     </section>
   }
 }

@@ -1,20 +1,26 @@
-<mat-card class="no-border-panel-card">
-  <mat-card-title class="border-title-panel-card-editor">Emails</mat-card-title>
-  <mat-card-content style="padding-bottom:0;">
-    <section fxFlexFill fxLayout="column" style="padding: 10px 0 10px 0">
-      @if (emails.length > 0) {
-        @for (item of emails; track item.adresse) {
-          <div fxFlexFill fxLayout="row">
-            <mat-form-field appearance="outline" fxFlex>
-              <mat-label>{{ item.type }}</mat-label>
-              <input [ngModel]="item.adresse" matInput>
-            </mat-form-field>
+<p-panel class="no-border">
+  <ng-template pTemplate="header" class="no-border">
+    <div class="flex align-items-center" style="color: cadetblue;">
+      <span class="font-bold">
+                Emails
+      </span>
+    </div>
+  </ng-template>
+  <section fxFlexFill fxLayout="column" style="padding: 10px 0 10px 0">
+    @if (emails.length > 0) {
+      @for (item of emails; track item.adresse) {
+        <div fxFlexFill fxLayout="row">
+          <div fxFlex>
+            <label for="nom">{{ item.type }} </label>
+            <input
+              pInputText
+              id="nom"
+              [ngModel]="item.adresse"/>
           </div>
-        } @empty {
-          <H1> There are no items.</H1>
-        }
+        </div>
+      } @empty {
+        <H1> There are no items.</H1>
       }
-    </section>
-  </mat-card-content>
-</mat-card>
-
+    }
+  </section>
+</p-panel>

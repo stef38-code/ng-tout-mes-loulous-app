@@ -6,6 +6,9 @@ import {MatFormField, MatLabel, MatSuffix} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {FlexModule} from "@angular/flex-layout";
+import {PanelModule} from "primeng/panel";
+import {SharedModule} from "primeng/api";
+import {InputTextModule} from "primeng/inputtext";
 
 @Component({
   selector: 'edit-email-personne',
@@ -23,7 +26,10 @@ import {FlexModule} from "@angular/flex-layout";
     MatSuffix,
     ReactiveFormsModule,
     FlexModule,
-    FormsModule
+    FormsModule,
+    PanelModule,
+    SharedModule,
+    InputTextModule
   ],
   templateUrl: './edit-email-personne.component.html',
   styleUrl: './edit-email-personne.component.scss'

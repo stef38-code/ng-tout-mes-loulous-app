@@ -8,8 +8,8 @@ import {Enfant} from "@model/enfant";
 import {Store} from "@ngrx/store";
 import {AppState} from "@core/store/store";
 import {currentSelector} from "@core/store/store.selector";
-import {MatButtonModule} from "@angular/material/button";
 import {Router} from "@angular/router";
+import {ButtonModule} from "primeng/button";
 
 @Component({
   selector: 'app-edit-parent',
@@ -21,7 +21,7 @@ import {Router} from "@angular/router";
     FlexModule,
     NgForOf,
     NgIf,
-    MatButtonModule
+    ButtonModule
   ],
   templateUrl: './edit-parent.component.html',
   styleUrl: './edit-parent.component.scss'

@@ -1,19 +1,27 @@
-<mat-card class="no-border-panel-card">
-  <mat-card-title class="border-title-panel-card-editor">Telephones</mat-card-title>
-  <mat-card-content style="padding-bottom:0;">
-    <section class="flex-column-p5">
-      @if (telephones.length > 0) {
-        @for (item of telephones; track item.numero) {
-          <div fxLayout="row">
-            <mat-form-field appearance="outline" fxFlex>
-              <mat-label>{{ item.type }}</mat-label>
-              <input [ngModel]="item.numero" matInput>
-            </mat-form-field>
-          </div>
-        } @empty {
-          <H1> There are no items.</H1>
-        }
+<p-panel class="no-border">
+  <ng-template pTemplate="header" class="no-border">
+    <div class="flex align-items-center" style="color: cadetblue;">
+      <span class="font-bold">
+                Télèphones
+      </span>
+    </div>
+  </ng-template>
+  <section class="flex column">
+    @if (telephones.length > 0) {
+      @for (item of telephones; track item.numero) {
+
+        <p-floatLabel class="flex align-align-center">
+          <input
+            pInputText
+            id="numero"
+            [ngModel]="item.numero"/>
+          <label for="numero">{{ item.type }}</label>
+        </p-floatLabel>
+
+      } @empty {
+        <H1> There are no items.</H1>
       }
-    </section>
-  </mat-card-content>
-</mat-card>
+    }
+  </section>
+</p-panel>
+
