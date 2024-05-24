@@ -1,8 +1,14 @@
-<mat-toolbar color="primary">
-  <button
-    (click)="drawer.toggle()"
-    mat-icon-button>
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span class="title-application">Tout mes loulous</span>
-</mat-toolbar>
+<p-toolbar>
+  <div class="p-toolbar-group-start">
+    <img ngSrc="assets/images/bebe.png" alt="" height="24" width="24"/>
+  </div>
+  <div class="p-toolbar-group-center">
+    @for (item of sidebarItems$| async; track item.id) {
+      <p-button id="p-button{{item.id}}" (onClick)="goTo(item.link)"
+                size="small" class="mr-2 transition-all"
+                label="{{item.text}}" icon="pi {{item.icon}}"
+      />
+    }
+  </div>
+  <div class="p-toolbar-group-end"></div>
+</p-toolbar>

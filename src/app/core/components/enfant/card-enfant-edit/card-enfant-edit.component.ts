@@ -1,27 +1,12 @@
 import {Component, Input} from '@angular/core';
 import {Enfant} from "@model/enfant";
-import {MatCardModule} from "@angular/material/card";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatIconModule} from "@angular/material/icon";
-import {MatInputModule} from "@angular/material/input";
-import {FormsModule} from "@angular/forms";
-import {MatDatepickerModule} from "@angular/material/datepicker";
-import {MAT_DATE_LOCALE, provideNativeDateAdapter} from "@angular/material/core";
+
 
 @Component({
   selector: 'card-enfant-edit',
   standalone: true,
-  imports: [
-    MatCardModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    FormsModule,
-    MatDatepickerModule,
-  ],
-  providers: [provideNativeDateAdapter(),
-    {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
-
+  imports: [],
+  providers: [
   ],
   templateUrl: './card-enfant-edit.component.html',
   styleUrl: './card-enfant-edit.component.scss'

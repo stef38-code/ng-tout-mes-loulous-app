@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
 import {CardEnfantEditComponent} from "@core/components/enfant/card-enfant-edit/card-enfant-edit.component";
 import {CardParentEditComponent} from "@pages/parent/card-parent-edit/card-parent-edit.component";
-import {FlexModule} from "@angular/flex-layout";
 import {Observable} from "rxjs";
 import {Enfant} from "@model/enfant";
 import {Store} from "@ngrx/store";
@@ -18,7 +17,6 @@ import {ButtonModule} from "primeng/button";
     AsyncPipe,
     CardEnfantEditComponent,
     CardParentEditComponent,
-    FlexModule,
     NgForOf,
     NgIf,
     ButtonModule

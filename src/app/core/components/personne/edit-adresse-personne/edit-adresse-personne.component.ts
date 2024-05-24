@@ -1,10 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {Adresse} from "@model/adresse";
-import {MatFormField, MatLabel} from "@angular/material/form-field";
-import {MatInput} from "@angular/material/input";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {FlexLayoutModule, FlexModule} from "@angular/flex-layout";
-import {MatCardModule} from "@angular/material/card";
 import {PanelModule} from "primeng/panel";
 import {InputTextModule} from "primeng/inputtext";
 
@@ -12,14 +8,8 @@ import {InputTextModule} from "primeng/inputtext";
   selector: 'edit-adresse-personne',
   standalone: true,
   imports: [
-    MatFormField,
-    MatInput,
-    MatLabel,
     ReactiveFormsModule,
     FormsModule,
-    FlexModule,
-    MatCardModule,
-    FlexLayoutModule,
     PanelModule,
     InputTextModule
   ],
