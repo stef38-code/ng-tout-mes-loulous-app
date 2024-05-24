@@ -7,6 +7,10 @@ import {Store} from "@ngrx/store";
 import {AppState} from "@core/store/store";
 import * as EnfantsActions from '@core/store/store.actions';
 import {CardModule} from "primeng/card";
+import {PanelModule} from "primeng/panel";
+import {AvatarModule} from "primeng/avatar";
+import {ButtonModule} from "primeng/button";
+import {BadgeModule} from "primeng/badge";
 
 @Component({
   selector: 'card-enfant',
@@ -16,7 +20,11 @@ import {CardModule} from "primeng/card";
     NgOptimizedImage,
     EnfantBorderCardDirective,
     NgStyle,
-    CardModule
+    CardModule,
+    PanelModule,
+    AvatarModule,
+    ButtonModule,
+    BadgeModule
   ],
   providers: [],
   templateUrl: './card-enfant.component.html',
@@ -59,5 +67,9 @@ export class CardEnfantComponent implements OnInit {
     if (this.item?.fratrie.length > 0) {
       this.colorFlag = "green";
     }
+  }
+
+  getFratrie(item: Enfant): number {
+    return item.fratrie.length;
   }
 }

@@ -4,18 +4,13 @@
   </div>
   <div class="flex flex-row flex-wrap align-items-center justify-content-center">
     @for (enfant of enfants$ | async; track $index) {
-      <div class="flex align-items-center justify-content-center w-4rem h-4rem">
+      <div class="flex flex-column">
         <card-enfant [item]="enfant"></card-enfant>
       </div>
     }
   </div>
 </div>
 
-<!--<div fxLayout="row" class="liste-enfants m4 s6">
-  <div *ngFor="let enfant of enfants$ | async; trackBy: trackByFn; let i = index">
-    <card-enfant [item]="enfant"></card-enfant>
-  </div>
-</div>-->
 
 
 

@@ -1,49 +1,47 @@
-<p-card header="{{ item.nom }}" subheader="{{ item.prenom }}" [style]="{
-width: '180px',
- margin: '10px',
+<p-card [style]="{
+ margin: '5px',
 }">
+  <ng-template pTemplate="title">
+    <div class="flex align-items-center gap-2">
+      <p-avatar
+        [image]="getImage(item.genre)"
+        size="normal"
+        shape="circle"/>
+      <span class="font-bold">
+        {{ item.prenom }}
+            </span>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="subtitle">
+    {{ item.nom }}
+  </ng-template>
+  <ng-template pTemplate="content">
+    <p-avatar
+      image="./assets/images/fratrie.png"
+      pBadge
+      [value]="getFratrie(item)"
+    />
+    <div class="flex align-items-center gap-2">
+      <p-avatar
+        image="./assets/images/anniversaire.png"
+        size="normal"
+        shape="circle"/>
+      <span class="font-bold">
+        {{ item.dateNaissance | date:"dd/MM/yyyy" }}
+            </span>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <div class="flex align-items-center">
+      <p-button id="p-button{{item.id}}" (onClick)="goToEditEnfant(item)"
+                size="small" class="mr-1 transition-all"
+                label="Editer" [text]="true" severity="help"/>
+      <p-button id="p-button{{item.id}}" (onClick)="goToEditParents(item)"
+                size="small" class="mr-2 transition-all"
+                label="Parents" [text]="true"/>
+      <p-button id="p-button{{item.id}}" (onClick)="goToEditContacts(item)"
+                size="small" class="mr-2 transition-all"
+                label="Contacts" [text]="true" [plain]="true"/>
+    </div>
+  </ng-template>
 </p-card>
-
-
-<!--<mat-card class="mat-card-liste-enfants"
-          enfantBorderCard="#673ab7">
-  <mat-card-header>
-    <img [src]="getImage(item.genre)" mat-card-avatar alt="">
-    <mat-card-title-group>
-      <mat-card-title>{{ item.nom }}</mat-card-title>
-      <mat-card-subtitle>{{ item.prenom }}</mat-card-subtitle>
-    </mat-card-title-group>
-  </mat-card-header>
-  <mat-card-content>
-    <mat-divider></mat-divider>
-    <span class="material-icons-outlined">
-</span>
-    <div class="anniversaire-input">
-      <mat-icon class="anniversaire-icon" [ngStyle]="{ color: colorFlag }">diversity_3</mat-icon>
-      <mat-label class="plainInput mat-typography">
-        {{ item.dateNaissance | date:"dd/MM/yyyy" }}
-      </mat-label>
-    </div>
-    <div class="anniversaire-input">
-      <img class="anniversaire-icon" ngSrc="../../../../../assets/images/gateau-anniversaire.png" alt="" height="32"
-           width="32">
-      <mat-label class="plainInput mat-typography">
-        {{ item.dateNaissance | date:"dd/MM/yyyy" }}
-      </mat-label>
-    </div>
-    <div fxFlexFill fxLayout="row" style="padding: 10px 0 10px 0">
-      <button mat-button color="primary"
-              (click)="goToEditEnfant(item)"
-      >Editer
-      </button>
-      <button mat-button color="primary"
-              (click)="goToEditParents(item)"
-      >Parents
-      </button>
-      <button mat-button color="primary"
-              (click)="goToEditContacts(item)"
-      >Contacts
-      </button>
-    </div>
-  </mat-card-content>
-</mat-card>-->
