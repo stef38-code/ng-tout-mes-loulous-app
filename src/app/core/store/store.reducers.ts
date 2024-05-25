@@ -10,9 +10,7 @@ export interface EnfantState {
 
 export const initialState: EnfantState = {
   enfants: [],
-  current: new Enfant(
-
-  ),
+  current: undefined,
   loading: false,
 };
 export const enfantReducer = createReducer(

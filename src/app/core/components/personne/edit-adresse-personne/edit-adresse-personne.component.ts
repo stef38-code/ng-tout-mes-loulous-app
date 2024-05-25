@@ -3,6 +3,7 @@ import {Adresse} from "@model/adresse";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {PanelModule} from "primeng/panel";
 import {InputTextModule} from "primeng/inputtext";
+import {FloatLabelModule} from "primeng/floatlabel";
 
 @Component({
   selector: 'edit-adresse-personne',
@@ -11,7 +12,8 @@ import {InputTextModule} from "primeng/inputtext";
     ReactiveFormsModule,
     FormsModule,
     PanelModule,
-    InputTextModule
+    InputTextModule,
+    FloatLabelModule
   ],
   templateUrl: './edit-adresse-personne.component.html',
   styleUrl: './edit-adresse-personne.component.scss'

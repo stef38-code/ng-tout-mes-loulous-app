@@ -29,6 +29,7 @@ export class EditParentComponent {
 
   constructor(private router: Router, private store: Store<AppState>) {
     this.current$ = this.store.select(currentSelector);
+
   }
 
   goToListEnfant(enfant: Enfant) {
@@ -37,5 +38,12 @@ export class EditParentComponent {
 
   goToListEnfants() {
     this.router.navigate(["/enfant/liste"]);
+  }
+
+  defaultValue(): Enfant {
+    return {
+      dateNaissance: undefined, fratrie: [], genre: "", id: 0, nom: "", parents: [], prenom: ""
+
+    }
   }
 }

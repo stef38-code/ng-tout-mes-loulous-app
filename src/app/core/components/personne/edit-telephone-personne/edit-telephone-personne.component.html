@@ -1,27 +1,21 @@
-<p-panel class="no-border">
-  <ng-template pTemplate="header" class="no-border">
-    <div class="flex align-items-center" style="color: cadetblue;">
-      <span class="font-bold">
-                Télèphones
-      </span>
-    </div>
-  </ng-template>
-  <section class="flex column">
+<div class="flex flex-column pt-3">
+  <div class="flex align-items-center justify-content-left gap-2" style="color: cadetblue;">
+    <!-- titre -->
+    <span class="font-bold">
+    Télèphones
+    </span>
+  </div>
+  <div class="flex flex-column">
     @if (telephones.length > 0) {
-      @for (item of telephones; track item.numero) {
-
-        <p-floatLabel class="flex align-align-center">
+      @for (item of telephones; track $index) {
+        <p-floatLabel class="pt-4">
           <input
             pInputText
             id="numero"
             [ngModel]="item.numero"/>
           <label for="numero">{{ item.type }}</label>
         </p-floatLabel>
-
-      } @empty {
-        <H1> There are no items.</H1>
       }
     }
-  </section>
-</p-panel>
-
+  </div>
+</div>

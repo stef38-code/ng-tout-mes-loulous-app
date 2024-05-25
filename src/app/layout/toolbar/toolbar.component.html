@@ -6,7 +6,7 @@
     @for (item of sidebarItems$| async; track item.id) {
       <p-button id="p-button{{item.id}}" (onClick)="goTo(item.link)"
                 size="small" class="mr-2 transition-all"
-                label="{{item.text}}" icon="pi {{item.icon}}"
+                label="{{item.text}}" [text]="true" icon="pi {{item.icon}}"
       />
     }
   </div>

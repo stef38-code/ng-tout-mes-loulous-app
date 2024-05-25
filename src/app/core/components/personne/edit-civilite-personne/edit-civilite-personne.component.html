@@ -1,56 +1,46 @@
-<p-panel class="no-border">
-  <ng-template pTemplate="header" class="no-border">
-    <div class="flex align-items-center" style="color: cadetblue;">
-      <span class="font-bold">
+<div class="flex flex-column pt-3">
+  <div class="flex align-items-center justify-content-left gap-2" style="color: cadetblue;">
+    <!-- titre -->
+    <span class="font-bold">
                 Civilité
       </span>
+  </div>
+  <div class="flex flex-row flex-wrap pt-3">
+    <div class="flex align-items-center justify-content-center">
+      <p-selectButton [ngModel]="personne.genre" [options]="stateOptions"></p-selectButton>
     </div>
-  </ng-template>
-  <div fxFlexFill fxLayout="column" style="padding: 10px">
-    <div>
-      <div class="flex-row-p5">
-        <div fxFlex>
-          <p-selectButton [ngModel]="personne.genre" [options]="stateOptions"></p-selectButton>
-        </div>
-        <div fxFlex>
-          <p-checkbox [ngModel]="personne.divorcer" [value]="personne.divorcer" label="Divorcé" color="primary"
-                      *ngIf="isParent"></p-checkbox>
-        </div>
-      </div>
-      <div>
-        <div class="flex-row-p5">
-          <div fxFlex="50%">
-            <div class="flex flex-column gap-2">
-              <label for="nom">Nom </label>
-              <input
-                pInputText
-                id="nom"
-                [ngModel]="personne.nom"/>
-            </div>
-          </div>
-          <div fxFlex="50%">
-            <div class="flex flex-row gap-1">
-              <label for="prenom">Prénom </label>
-              <input
-                pInputText
-                id="prenom"
-                [ngModel]="personne.prenom"/>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="flex flex-column gap-2">
-          <label for="dateNaiss">Date de naissance </label>
-          <p-calendar [ngModel]="personne.dateNaissance"
-                      [showIcon]="true" id="dateNaiss"
-                      dateFormat="dd/mm/yy"
-                      [maxDate]="maxDate"></p-calendar>
-        </div>
-      </div>
-    </div>
-    <div>
-
+    <div class="flex align-items-center justify-content-center">
+      <p-checkbox *ngIf="isParent" [ngModel]="personne.divorcer" [value]="personne.divorcer" color="primary"
+                  label="Divorcé"></p-checkbox>
     </div>
   </div>
-</p-panel>
+  <div class="flex flex-row flex-wrap pt-4">
+    <div class="flex">
+      <p-floatLabel>
+        <input
+          [ngModel]="personne.nom"
+          id="nom"
+          pInputText/>
+        <label for="nom">Nom </label>
+      </p-floatLabel>
+    </div>
+    <div class="flex flex-wrap">
+      <p-floatLabel>
+        <input
+          [ngModel]="personne.prenom"
+          id="prenom"
+          pInputText/>
+        <label for="prenom">Prénom </label>
+      </p-floatLabel>
+    </div>
+  </div>
+  <div class="flex flex-row pt-4">
+    <p-floatLabel>
+      <p-calendar [maxDate]="maxDate"
+                  [ngModel]="personne.dateNaissance" [showIcon]="true"
+                  dateFormat="dd/mm/yy"
+                  id="dateNaiss"></p-calendar>
+      <label for="dateNaiss">Date de naissance </label>
+    </p-floatLabel>
+  </div>
+</div>

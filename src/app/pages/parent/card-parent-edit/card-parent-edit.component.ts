@@ -11,6 +11,9 @@ import {
 } from "@core/components/personne/edit-adresse-personne/edit-adresse-personne.component";
 import {EditEmailPersonneComponent} from "@core/components/personne/edit-email-personne/edit-email-personne.component";
 import {PanelModule} from "primeng/panel";
+import {
+  EditTelEmailPersonneComponent
+} from "@core/components/personne/edit-tel-email-personne/edit-tel-email-personne.component";
 
 
 @Component({
@@ -21,7 +24,8 @@ import {PanelModule} from "primeng/panel";
     EditCivilitePersonneComponent,
     EditAdressePersonneComponent,
     EditEmailPersonneComponent,
-    PanelModule
+    PanelModule,
+    EditTelEmailPersonneComponent
 
   ],
   providers: [],

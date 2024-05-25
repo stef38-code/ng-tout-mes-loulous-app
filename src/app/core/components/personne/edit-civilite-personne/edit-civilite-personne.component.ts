@@ -7,6 +7,7 @@ import {SelectButtonModule} from "primeng/selectbutton";
 import {CheckboxModule} from "primeng/checkbox";
 import {InputTextModule} from "primeng/inputtext";
 import {CalendarModule} from "primeng/calendar";
+import {FloatLabelModule} from "primeng/floatlabel";
 
 @Component({
   selector: 'edit-civilite-personne',
@@ -20,6 +21,7 @@ import {CalendarModule} from "primeng/calendar";
     CheckboxModule,
     InputTextModule,
     CalendarModule,
+    FloatLabelModule,
 
   ],
   providers: [

@@ -1,38 +1,36 @@
-<p-panel class="no-border">
-  <ng-template pTemplate="header" class="no-border">
-    <div class="flex align-items-center" style="color: cadetblue;">
-      <span class="font-bold">Adresse</span>
+<div class="flex flex-column pt-3">
+  <div class="flex align-items-center justify-content-left gap-2" style="color: cadetblue;">
+    <!-- titre -->
+    <span class="font-bold">
+    Adresse
+    </span>
+  </div>
+  <div class="flex flex-column">
+    <div class="flex flex-row pt-4">
+      <p-floatLabel>
+        <input
+          [ngModel]="adresse.rue"
+          id="rue"
+          pInputText/>
+        <label for="rue">Rue </label>
+      </p-floatLabel>
     </div>
-  </ng-template>
-  <div class="flex-column-p5">
-    <div fxFlex>
-      <label for="rue">Rue </label>
-      <input
-        pInputText
-        id="rue"
-        [ngModel]="adresse.rue"/>
-    </div>
-    <div>
-      <div class="flex-row-p5">
-        <div fxFlex="25%">
-          <div fxFlex>
-            <label for="codePostal">Code postal </label>
-            <input
-              pInputText
-              id="codePostal"
-              [ngModel]="adresse.codePostal"/>
-          </div>
-        </div>
-        <div fxFlex>
-          <div fxFlex style="padding-left: 10px">
-            <label for="ville">Code postal </label>
-            <input
-              pInputText
-              id="ville"
-              [ngModel]="adresse.ville"/>
-          </div>
-        </div>
-      </div>
+    <div class="flex flex-row flex-wrap pt-4">
+      <p-floatLabel>
+        <input
+          [ngModel]="adresse.codePostal"
+          id="codePostal"
+          pInputText/>
+        <label for="codePostal">Code postal </label>
+      </p-floatLabel>
+      <p-floatLabel>
+        <input
+          [ngModel]="adresse.ville"
+          id="ville"
+          pInputText/>
+        <label for="ville">Ville</label>
+      </p-floatLabel>
     </div>
   </div>
-</p-panel>
+
+</div>

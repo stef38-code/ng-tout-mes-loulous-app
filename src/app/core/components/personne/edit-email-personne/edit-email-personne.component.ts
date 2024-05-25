@@ -4,6 +4,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {PanelModule} from "primeng/panel";
 import {SharedModule} from "primeng/api";
 import {InputTextModule} from "primeng/inputtext";
+import {FloatLabelModule} from "primeng/floatlabel";
 
 @Component({
   selector: 'edit-email-personne',
@@ -13,7 +14,8 @@ import {InputTextModule} from "primeng/inputtext";
     FormsModule,
     PanelModule,
     SharedModule,
-    InputTextModule
+    InputTextModule,
+    FloatLabelModule
   ],
   templateUrl: './edit-email-personne.component.html',
   styleUrl: './edit-email-personne.component.scss'

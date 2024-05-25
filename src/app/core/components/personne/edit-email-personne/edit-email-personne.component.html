@@ -1,26 +1,22 @@
-<p-panel class="no-border">
-  <ng-template pTemplate="header" class="no-border">
-    <div class="flex align-items-center" style="color: cadetblue;">
-      <span class="font-bold">
-                Emails
-      </span>
-    </div>
-  </ng-template>
-  <section fxFlexFill fxLayout="column" style="padding: 10px 0 10px 0">
+<div class="flex flex-column pt-3">
+  <div class="flex align-items-center justify-content-left gap-2" style="color: cadetblue;">
+    <!-- titre -->
+    <span class="font-bold">
+    Emails
+    </span>
+  </div>
+  <div class="flex flex-column">
     @if (emails.length > 0) {
-      @for (item of emails; track item.adresse) {
-        <div fxFlexFill fxLayout="row">
-          <div fxFlex>
-            <label for="nom">{{ item.type }} </label>
-            <input
-              pInputText
-              id="nom"
-              [ngModel]="item.adresse"/>
-          </div>
-        </div>
-      } @empty {
-        <H1> There are no items.</H1>
+      @for (item of emails; track $index) {
+        <p-floatLabel class="pt-4">
+          <input
+            pInputText
+            id="numero"
+            [ngModel]="item.adresse"/>
+          <label for="numero">{{ item.type }}</label>
+        </p-floatLabel>
       }
     }
-  </section>
-</p-panel>
+  </div>
+</div>
+
