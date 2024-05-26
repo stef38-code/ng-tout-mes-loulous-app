@@ -1,35 +1,30 @@
 @if (current$ | async; as enfant) {
   @if (enfant.parents) {
-    <section fxLayout="row">
-      <div fxFlex fxLayout="column">
-        <section fxFlex>
-          <div class="centered-row">
-            <div *ngFor="let parent of enfant.parents; let i = index" fxFlex>
-              <card-parent-edit [index]="i" [parent]="parent"></card-parent-edit>
-            </div>
-          </div>
-        </section>
-        <section class="centered-row">
-          <p-button
-                  class="mat-padding-10"
-                  (click)="goToListEnfant(enfant)"
-          >Enregistrer
-          </p-button>
-          <p-button mat-flat-button severity="warning"
-                  class="mat-padding-10"
-                  (click)="goToListEnfants()"
-          >Retour
-          </p-button>
-        </section>
+    <div class="flex overflow-hidden">
+      @for (parent of enfant.parents; track $index) {
+        <div class="flex-grow-1">
+          <edit-component-personne [index]="$index" [parent]="parent"></edit-component-personne>
+        </div>
+      }
+    </div>
+    <div class="flex justify-content-center flex-wrap">
+      <div class="flex align-items-center justify-content-center">
+        <p-button
+          severity="success"
+          class="mat-padding-10"
+          (onClick)="goToListEnfant(enfant)"
+          text="true"
+        >Enregistrer
+        </p-button>
       </div>
-
-    </section>
-  } @else {
-    <section fxFlexFill class="centered-row">
-      <p-button severity="danger"
-              (click)="goToListEnfants()"
-      >Retour
-      </p-button>
-    </section>
+      <div class="flex align-items-center justify-content-center">
+        <p-button severity="danger"
+                  class="mat-padding-10"
+                  (onClick)="goToListEnfants()"
+                  text="true"
+        >Retour
+        </p-button>
+      </div>
+    </div>
   }
 }

@@ -5,18 +5,20 @@
     Emails
     </span>
   </div>
-  <div class="flex flex-column">
     @if (emails.length > 0) {
       @for (item of emails; track $index) {
-        <p-floatLabel class="pt-4">
+        <div class="field pt-4 pr-4">
+          <p-floatLabel>
           <input
             pInputText
             id="numero"
-            [ngModel]="item.adresse"/>
+            [ngModel]="item.adresse"
+            class="w-full"
+          />
           <label for="numero">{{ item.type }}</label>
         </p-floatLabel>
+        </div>
       }
     }
-  </div>
 </div>
 

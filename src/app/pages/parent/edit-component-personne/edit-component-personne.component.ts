@@ -17,7 +17,7 @@ import {
 
 
 @Component({
-  selector: 'card-parent-edit',
+  selector: 'edit-component-personne',
   standalone: true,
   imports: [
     EditTelephonePersonneComponent,
@@ -29,10 +29,10 @@ import {
 
   ],
   providers: [],
-  templateUrl: './card-parent-edit.component.html',
-  styleUrl: './card-parent-edit.component.scss'
+  templateUrl: './edit-component-personne.component.html',
+  styleUrl: './edit-component-personne.component.scss'
 })
-export class CardParentEditComponent {
+export class EditComponentPersonne {
   @Input()
   parent: Personne;
 

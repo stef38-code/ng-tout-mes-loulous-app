@@ -8,6 +8,8 @@ import {Observable} from "rxjs";
 import {AsyncPipe, NgForOf} from "@angular/common";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {HttpClient} from "@angular/common/http";
+import {PrimeNGConfig} from "primeng/api";
+import {TranslateService} from "@ngx-translate/core";
 
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -47,7 +49,10 @@ export class AppComponent  implements OnInit,OnDestroy{
   }*/
 
   constructor(
-    private sidebarService: SidebarService,) {
+    private sidebarService: SidebarService,
+    private primengConfig: PrimeNGConfig,
+    private translateService: TranslateService,
+  ) {
     this.sidebarItems$ = this.sidebarService.getSidebarItems();
   }
 
@@ -58,13 +63,14 @@ export class AppComponent  implements OnInit,OnDestroy{
   }
 
   ngOnInit(): void {
-    /* this.primengConfig.ripple = true;
-     this.translateService.setDefaultLang('fr');*/
+    this.primengConfig.ripple = true;
+    this.translateService.setDefaultLang('fr');
+    this.translate('fr');
   }
 
-  /* translate(lang: string) {
+  translate(lang: string) {
      this.translateService.use(lang);
      this.translateService.get('primeng').subscribe(res => this.primengConfig.setTranslation(res));
-   }*/
+  }
 
 }

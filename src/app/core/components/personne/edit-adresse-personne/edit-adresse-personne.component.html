@@ -5,32 +5,39 @@
     Adresse
     </span>
   </div>
-  <div class="flex flex-column">
-    <div class="flex flex-row pt-4">
+  <div class="field pt-4 pr-4">
       <p-floatLabel>
         <input
           [ngModel]="adresse.rue"
           id="rue"
-          pInputText/>
+          pInputText
+          class="w-full"
+        />
         <label for="rue">Rue </label>
       </p-floatLabel>
     </div>
-    <div class="flex flex-row flex-wrap pt-4">
+  <div class="flex overflow-hidden">
+    <div class="field w-full pt-4 pr-4">
       <p-floatLabel>
         <input
           [ngModel]="adresse.codePostal"
           id="codePostal"
+          class="w-full"
           pInputText/>
-        <label for="codePostal">Code postal </label>
+        <label for="codePostal"
+        >Code postal </label>
       </p-floatLabel>
+    </div>
+    <div class="field w-full pt-4 pr-4">
       <p-floatLabel>
         <input
           [ngModel]="adresse.ville"
           id="ville"
+          class="w-full"
           pInputText/>
-        <label for="ville">Ville</label>
+        <label for="ville"
+        >Ville</label>
       </p-floatLabel>
     </div>
   </div>
-
 </div>

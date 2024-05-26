@@ -5,30 +5,32 @@
                 Civilité
       </span>
   </div>
-  <div class="flex flex-row flex-wrap pt-3">
-    <div class="flex align-items-center justify-content-center">
+  <div class="flex overflow-hidden">
+    <div class="field w-full pt-4 pr-4">
       <p-selectButton [ngModel]="personne.genre" [options]="stateOptions"></p-selectButton>
     </div>
-    <div class="flex align-items-center justify-content-center">
-      <p-checkbox *ngIf="isParent" [ngModel]="personne.divorcer" [value]="personne.divorcer" color="primary"
+    <div class="field w-full pt-4 pr-4">
+      <p-checkbox *ngIf="isParent" [ngModel]="personne.divorcer" binary="true"
                   label="Divorcé"></p-checkbox>
     </div>
   </div>
-  <div class="flex flex-row flex-wrap pt-4">
-    <div class="flex">
+  <div class="flex overflow-hidden">
+    <div class="field w-full pt-4 pr-4">
       <p-floatLabel>
         <input
           [ngModel]="personne.nom"
           id="nom"
+          class="w-full"
           pInputText/>
         <label for="nom">Nom </label>
       </p-floatLabel>
     </div>
-    <div class="flex flex-wrap">
+    <div class="field w-full pt-4 pr-4">
       <p-floatLabel>
         <input
           [ngModel]="personne.prenom"
           id="prenom"
+          class="w-full"
           pInputText/>
         <label for="prenom">Prénom </label>
       </p-floatLabel>
@@ -41,6 +43,7 @@
                   dateFormat="dd/mm/yy"
                   id="dateNaiss"></p-calendar>
       <label for="dateNaiss">Date de naissance </label>
+      {{ personne.dateNaissance }}
     </p-floatLabel>
   </div>
 </div>
