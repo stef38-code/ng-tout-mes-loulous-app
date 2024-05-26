@@ -3,7 +3,7 @@ import {ToolbarModule} from "primeng/toolbar";
 import {AvatarModule} from "primeng/avatar";
 import {SharedModule} from "primeng/api";
 import {Observable} from "rxjs";
-import {SidebarItem} from "@layout/services/model/menu-sidebar.interface";
+import {SidebarItem} from "@layout/model/menu-sidebar.interface";
 import {SidebarService} from "@layout/services/sidebar.service";
 import {AsyncPipe, NgOptimizedImage} from "@angular/common";
 import {Router} from "@angular/router";

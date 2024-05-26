@@ -12,3 +12,8 @@ export const currentSelector = createSelector(
   feature,
   (state: EnfantState) => state.current
 );
+
+export const loadingEnfantSelector = createSelector(
+  feature,
+  (state: EnfantState) => state.loading
+);

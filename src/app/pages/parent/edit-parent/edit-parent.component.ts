@@ -39,11 +39,4 @@ export class EditParentComponent {
   goToListEnfants() {
     this.router.navigate(["/enfant/liste"]);
   }
-
-  defaultValue(): Enfant {
-    return {
-      dateNaissance: undefined, fratrie: [], genre: "", id: 0, nom: "", parents: [], prenom: ""
-
-    }
-  }
 }

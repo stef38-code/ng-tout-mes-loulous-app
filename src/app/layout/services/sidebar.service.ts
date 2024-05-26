@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {SidebarItem} from "./model/menu-sidebar.interface";
+import {SidebarItem} from "@layout/model/menu-sidebar.interface";
 import {Observable, of} from "rxjs";
 
 @Injectable({

@@ -1,0 +1,34 @@
+<p-card [style]="{
+ margin: '5px',
+}">
+  <ng-template pTemplate="title">
+    <div class="flex align-items-center gap-2">
+      <p-avatar
+        [image]="getImage(item.genre)"
+        size="normal"
+        shape="circle"/>
+      <span class="font-bold">
+        Nouvel
+            </span>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="subtitle">
+    Enfant
+  </ng-template>
+  <ng-template pTemplate="content">
+
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <div class="flex align-items-center">
+      <p-button id="p-button{{item.id}}" (onClick)="goToEditEnfant(item)"
+                size="small" class="mr-1 transition-all"
+                label="Editer" [text]="true" severity="help"/>
+      <p-button id="p-button{{item.id}}" (onClick)="goToEditParents(item)"
+                size="small" class="mr-2 transition-all"
+                label="Parents" [text]="true"/>
+      <p-button id="p-button{{item.id}}" (onClick)="goToEditContacts(item)"
+                size="small" class="mr-2 transition-all"
+                label="Contacts" [text]="true" [plain]="true"/>
+    </div>
+  </ng-template>
+</p-card>

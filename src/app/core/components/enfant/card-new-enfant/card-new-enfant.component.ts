@@ -13,7 +13,7 @@ import {ButtonModule} from "primeng/button";
 import {BadgeModule} from "primeng/badge";
 
 @Component({
-  selector: 'card-enfant',
+  selector: 'card-new-enfant',
   standalone: true,
   imports: [
     DatePipe,
@@ -27,10 +27,10 @@ import {BadgeModule} from "primeng/badge";
     BadgeModule
   ],
   providers: [],
-  templateUrl: './card-enfant.component.html',
-  styleUrl: './card-enfant.component.scss'
+  templateUrl: './card-new-enfant.component.html',
+  styleUrl: './card-new-enfant.component.scss'
 })
-export class CardEnfantComponent {
+export class CardNewEnfantComponent {
   @Input() item: Enfant;
 
   constructor(
@@ -64,8 +64,4 @@ export class CardEnfantComponent {
     this.router.navigate(['/contacts/editer']);
   }
 
-
-  getFratrie(item: Enfant): number {
-    return item.fratrie.length;
-  }
 }

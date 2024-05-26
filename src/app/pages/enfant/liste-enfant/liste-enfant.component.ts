@@ -9,6 +9,9 @@ import {enfantsSelector} from "@core/store/store.selector";
 import * as EnfantsActions from '@core/store/store.actions';
 import {ButtonModule} from "primeng/button";
 import {ToolbarModule} from "primeng/toolbar";
+import {CreateNewEnfantService} from "@core/services/create-new-enfant.service";
+import {LoadingComponent} from "@core/components/loading/loading.component";
+import {CardNewEnfantComponent} from "@core/components/enfant/card-new-enfant/card-new-enfant.component";
 
 @Component({
   selector: 'app-liste-enfant',
@@ -22,18 +25,22 @@ import {ToolbarModule} from "primeng/toolbar";
     CardEnfantComponent,
     JsonPipe,
     ButtonModule,
-    ToolbarModule
+    ToolbarModule,
+    LoadingComponent,
+    CardNewEnfantComponent
   ],
-  providers: [],
+  providers: [CreateNewEnfantService],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './liste-enfant.component.html',
   styleUrl: './liste-enfant.component.scss'
 })
 export class ListeEnfantComponent implements OnInit{
   enfants$: Observable<Enfant[]>;
+  newEnfant$: Observable<Enfant> = this.createNewEnfantService.new();
 
-
-  constructor(private store: Store<AppState>) {
+  constructor(private createNewEnfantService: CreateNewEnfantService,
+              private store: Store<AppState>) {
+    this.newEnfant$ = this.createNewEnfantService.new();
     this.enfants$ = this.store.select(enfantsSelector);
 
   }
@@ -41,12 +48,8 @@ export class ListeEnfantComponent implements OnInit{
   ngOnInit(): void {
     this.loadEnfants();
   }
-
-  trackByFn(index: number, enfant: Enfant) {
-    return enfant.id;
-  }
-
   loadEnfants() {
     this.store.dispatch(EnfantsActions.loadEnfants());
   }
+
 }

@@ -1,13 +1,16 @@
-<div class="flex flex-column">
+<loading-component [target]="component"></loading-component>
+<div #component class="flex flex-column">
   <div class="flex align-items-center justify-content-center">
     <H2>Liste des enfants</H2>
   </div>
   <div class="flex flex-row flex-wrap align-items-center justify-content-center">
+    <card-new-enfant [item]="newEnfant$ | async"></card-new-enfant>
     @for (enfant of enfants$ | async; track $index) {
       <div class="flex flex-column">
         <card-enfant [item]="enfant"></card-enfant>
       </div>
     }
+
   </div>
 </div>
 

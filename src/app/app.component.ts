@@ -3,7 +3,7 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from "@angular/router";
 import {BooleanInput} from "@angular/cdk/coercion";
 import {ToolbarComponent} from "@layout/toolbar/toolbar.component";
 import {SidebarService} from "@layout/services/sidebar.service";
-import {SidebarItem} from "@layout/services/model/menu-sidebar.interface";
+import {SidebarItem} from "@layout/model/menu-sidebar.interface";
 import {Observable} from "rxjs";
 import {AsyncPipe, NgForOf} from "@angular/common";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
