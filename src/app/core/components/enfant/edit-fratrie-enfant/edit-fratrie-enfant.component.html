@@ -1,0 +1,22 @@
+<div class="flex flex-column pt-3">
+  <div class="flex align-items-center justify-content-left gap-2" style="color: cadetblue;">
+    <!-- titre -->
+    <span class="font-bold">
+                Fratrie
+      </span>
+  </div>
+  <div class="flex flex-column pt-3">
+    <div class="flex align-items-center justify-content-center gap-2" style="color: cadetblue;">
+      <p-button severity="success"
+                size="small" class="mr-2 transition-all"
+                (onClick)="addFratrie()"
+                text="true"
+                icon="pi pi-user"
+      >
+      </p-button>
+    </div>
+  </div>
+  @for (item of fraterie; track item) {
+    <fratrie-component [id]="item"></fratrie-component>
+  }
+</div>
