@@ -39,4 +39,8 @@ export class EditParentComponent {
   goToListEnfants() {
     this.router.navigate(["/enfant/liste"]);
   }
+
+  goToEditEnfant() {
+    this.router.navigate(["/enfant/editer"]);
+  }
 }

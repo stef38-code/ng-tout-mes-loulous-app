@@ -12,6 +12,10 @@ export const currentSelector = createSelector(
   feature,
   (state: EnfantState) => state.current
 );
+export const currentFratrieSelector = createSelector(
+  feature,
+  (state: EnfantState) => state.current.fratrie
+);
 
 export const loadingEnfantSelector = createSelector(
   feature,

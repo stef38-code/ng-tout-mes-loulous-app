@@ -1,3 +1,48 @@
+<div class="flex flex-column pt-3">
+  <div class="flex align-items-center justify-content-left gap-2" style="color: cadetblue;">
+    <!-- titre -->
+    <span class="font-bold">
+                Civilité
+      </span>
+  </div>
+  <div class="flex flex-row pt-3">
+    <div class="flex align-items-center justify-content-left gap-2">
+      <div class="flex flex-column pt-3">
+        <edit-civilite-enfant [item]="item"></edit-civilite-enfant>
+        <edit-fratrie-enfant [item]="item"></edit-fratrie-enfant>
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-content-center flex-wrap">
+    <div class="flex align-items-center justify-content-center">
+      <p-button
+        severity="success"
+        class="mat-padding-10"
+        (onClick)="goToListEnfant(item)"
+        text="true"
+      >Enregistrer
+      </p-button>
+    </div>
+    <div class="flex align-items-center justify-content-center">
+      <p-button severity="danger"
+                class="mat-padding-10"
+                (onClick)="goToListEnfants()"
+                text="true"
+      >Retour
+      </p-button>
+    </div>
+    <div class="flex align-items-center justify-content-center">
+      <p-button severity="secondary"
+                class="mat-padding-10"
+                (onClick)="goToEditParents()"
+                text="true"
+      >Parents
+      </p-button>
+    </div>
+  </div>
+</div>
+
+
 <!--<mat-card class="no-border-panel">
   <mat-card-title class="title-panel">Enfant</mat-card-title>
   <mat-card-content>

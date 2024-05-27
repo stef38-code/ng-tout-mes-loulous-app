@@ -25,6 +25,14 @@
         >Retour
         </p-button>
       </div>
+      <div class="flex align-items-center justify-content-center">
+        <p-button severity="secondary"
+                  class="mat-padding-10"
+                  (onClick)="goToEditEnfant()"
+                  text="true"
+        >{{ enfant.prenom }} {{ enfant.nom }}
+        </p-button>
+      </div>
     </div>
   }
 }

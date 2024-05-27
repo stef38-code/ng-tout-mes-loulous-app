@@ -41,7 +41,7 @@ export class CardEnfantComponent {
   }
 
   goToEditEnfant(enfant: Enfant) {
-    this.store.dispatch(EnfantsActions.selectEnfant({enfant}));
+    this.store.dispatch(EnfantsActions.selectEnfantByEnfant({enfant}));
     this.router.navigate(['/enfant/editer']);
 
   }
@@ -54,13 +54,13 @@ export class CardEnfantComponent {
   }
 
   goToEditParents(enfant: Enfant) {
-    this.store.dispatch(EnfantsActions.selectEnfant({enfant}));
+    this.store.dispatch(EnfantsActions.selectEnfantByEnfant({enfant}));
     this.router.navigate(['/parents/editer']);
   }
 
 
   goToEditContacts(enfant: Enfant) {
-    this.store.dispatch(EnfantsActions.selectEnfant({enfant}));
+    this.store.dispatch(EnfantsActions.selectEnfantByEnfant({enfant}));
     this.router.navigate(['/contacts/editer']);
   }
 

@@ -6,7 +6,7 @@ import {Observable} from "rxjs";
 import {SidebarItem} from "@layout/model/menu-sidebar.interface";
 import {SidebarService} from "@layout/services/sidebar.service";
 import {AsyncPipe, NgOptimizedImage} from "@angular/common";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ButtonModule} from "primeng/button";
 
 
@@ -23,11 +23,12 @@ export class ToolbarComponent {
   sidebarItems$: Observable<SidebarItem[]>;
 
   constructor(private router: Router,
+              private route: ActivatedRoute,
               private sidebarService: SidebarService) {
     this.sidebarItems$ = this.sidebarService.getSidebarItems();
   }
 
   goTo(link: string) {
-    this.router.navigate([link]);
+    this.router.navigate([link], {relativeTo: this.route});
   }
 }
