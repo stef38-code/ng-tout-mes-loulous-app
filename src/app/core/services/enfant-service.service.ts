@@ -16,20 +16,45 @@ export class EnfantService {
     private httpClient: HttpClient,
     private messageService: MessageService) {
   }
+
+  private url = 'api/enfants';
+
   getEnfantList():Observable<Enfant[]>{
-    return this.httpClient.get<Enfant[]>('api/enfants').pipe(
+    return this.httpClient.get<Enfant[]>(this.url).pipe(
       tap((enfants) => this.log(`Chargement des enfants, nombre: ${enfants.length}`)),
-      catchError(this.handleError<Enfant[]>('getHeroes', [])
+      catchError(this.handleError<Enfant[]>('getEnfantList', [])
       )
     );
   }
   getEnfantById(id: number):Observable<Enfant| undefined> {
-    return this.httpClient.get<Enfant>(`api/enfants/${id}`).pipe(
-      tap((enfant) => this.log(`recherche d'un enfant par id: ${id}`)),
+    return this.httpClient.get<Enfant>(`${this.url}/${id}`).pipe(
+      tap((enfant) => this.log(`recherche d'un enfant${enfant.id} par id: ${id}`)),
       catchError(this.handleError<Enfant>(`getEnfantById id=${id}`))
     );
   }
 
+  addEnfant(enfant: Enfant): Observable<Enfant> {
+    return this.httpClient.post<Enfant>(this.url, enfant, this.httpOptions).pipe(
+      tap((newEnfant: Enfant) => this.log(`Ajout un nouvel enfant w/ id=${newEnfant.id}`)),
+      catchError(this.handleError<Enfant>('addEnfant'))
+    );
+  }
+
+  deleteEnfant(id: number): Observable<Enfant> {
+    const url = `${this.url}/${id}`;
+
+    return this.httpClient.delete<Enfant>(url, this.httpOptions).pipe(
+      tap(_ => this.log(`Supprimer un enfant id=${id}`)),
+      catchError(this.handleError<Enfant>('deleteEnfant'))
+    );
+  }
+
+  updateEnfant(enfant: Enfant): Observable<any> {
+    return this.httpClient.put(this.url, enfant, this.httpOptions).pipe(
+      tap(_ => this.log(`Mise à jours d'un enfant id=${enfant.id}`)),
+      catchError(this.handleError<any>('updateEnfant'))
+    );
+  }
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
@@ -46,7 +71,7 @@ export class EnfantService {
 
 
   private log(message: string) {
-    this.messageService.add(`Mes loulous: ${message}`);
+    this.messageService.add(`Tout mes loulous: ${message}`);
   }
 
 }

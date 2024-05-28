@@ -21,7 +21,7 @@ export class CreateNewEnfantService {
 
   createEnfant(): Enfant {
     return {
-      "dateNaissance": undefined, "fratrie": [], "genre": "", "id": 0, "nom": "", "parents": [
+      "dateNaissance": undefined, "fratrie": [], "genre": "", "id": null, "nom": "", "parents": [
         this.createPersonne(),
         this.createPersonne()], "prenom": ""
     }

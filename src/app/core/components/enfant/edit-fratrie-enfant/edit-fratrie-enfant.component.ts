@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {ButtonModule} from "primeng/button";
 import {Store} from "@ngrx/store";
 import {AppState} from "@core/store/store";
@@ -21,17 +21,16 @@ import {
   templateUrl: './edit-fratrie-enfant.component.html',
   styleUrl: './edit-fratrie-enfant.component.scss'
 })
-export class EditFratrieEnfantComponent implements OnInit {
+export class EditFratrieEnfantComponent {
   fraterie: number[] | undefined;
   @Input() item: Enfant;
   fraterie$: Observable<number[]>;
 
   constructor(private store: Store<AppState>) {
     this.fraterie$ = this.store.select(currentFratrieSelector);
-  }
-
-  ngOnInit(): void {
-    this.fraterie = this.item.fratrie;
+    this.fraterie$.subscribe(
+      values => this.fraterie = values
+    )
   }
 
   addFratrie() {

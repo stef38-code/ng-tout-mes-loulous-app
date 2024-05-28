@@ -46,22 +46,9 @@ export class CardNewEnfantComponent {
 
   }
 
-  getImage(genre: string): string {
-    if (genre == "Fille") {
-      return "assets/images/icons8-fille-48.png";
-    }
-    return "assets/images/icons8-garçon-48.png";
+  getImage(): string {
+    return "assets/images/new_bebe.png";
   }
 
-  goToEditParents(enfant: Enfant) {
-    this.store.dispatch(EnfantsActions.selectEnfantByEnfant({enfant}));
-    this.router.navigate(['/parents/editer']);
-  }
-
-
-  goToEditContacts(enfant: Enfant) {
-    this.store.dispatch(EnfantsActions.selectEnfantByEnfant({enfant}));
-    this.router.navigate(['/contacts/editer']);
-  }
 
 }

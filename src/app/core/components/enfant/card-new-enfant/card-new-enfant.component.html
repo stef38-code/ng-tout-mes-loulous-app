@@ -4,7 +4,7 @@
   <ng-template pTemplate="title">
     <div class="flex align-items-center gap-2">
       <p-avatar
-        [image]="getImage(item.genre)"
+        [image]="getImage()"
         size="normal"
         shape="circle"/>
       <span class="font-bold">
@@ -23,12 +23,6 @@
       <p-button id="p-button{{item.id}}" (onClick)="goToEditEnfant(item)"
                 size="small" class="mr-1 transition-all"
                 label="Editer" [text]="true" severity="help"/>
-      <p-button id="p-button{{item.id}}" (onClick)="goToEditParents(item)"
-                size="small" class="mr-2 transition-all"
-                label="Parents" [text]="true"/>
-      <p-button id="p-button{{item.id}}" (onClick)="goToEditContacts(item)"
-                size="small" class="mr-2 transition-all"
-                label="Contacts" [text]="true" [plain]="true"/>
     </div>
   </ng-template>
 </p-card>
