@@ -13,7 +13,7 @@ import {TranslateService} from "@ngx-translate/core";
 
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http, './i18n/', '.json');
 }
 
 

@@ -5,7 +5,7 @@ export class Enfant {
   genre: string | undefined;
   nom: string | undefined;
   prenom:string | undefined;
-  dateNaissance: Date | undefined;
+  dateNaissance: string | undefined;
   parents: Personne[] | undefined;
   fratrie: number[] | undefined;
 

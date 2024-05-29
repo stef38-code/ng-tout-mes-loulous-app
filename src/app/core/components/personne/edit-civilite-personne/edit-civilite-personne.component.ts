@@ -34,8 +34,12 @@ export class EditCivilitePersonneComponent {
   @Input() personne: Personne;
   @Input() isParent: boolean = false;
   maxDate: Date;
+  anniversaire: Date;
   stateOptions: any[] = [{label: 'Madame', value: 'F'}, {label: 'Monsieur', value: 'M'}];
   constructor() {
     this.maxDate = new Date();
+    //this.anniversaire = this.getDate(this.personne.dateNaissance);
   }
+
+
 }

@@ -35,7 +35,7 @@ export class FratrieComponentComponent implements OnInit {
 
   goTo(enfant: Enfant) {
     this.store.dispatch(EnfantsActions.selectEnfantByEnfant({enfant}));
-    this.router.navigate(['/enfant/editer']);
+    //this.router.navigate(['/enfant/editer']);
   }
 
   ngOnInit(): void {

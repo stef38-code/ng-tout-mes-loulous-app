@@ -6,14 +6,14 @@ export const enfants: Enfant[] = [
     nom: "Leach",
     prenom: "Maxine",
     genre: "Garçon",
-    dateNaissance: new Date(2023, 7, 4),
+    dateNaissance: "04/07/2023",
     parents: [
       {
         divorcer: true,
         genre: "F",
         nom: "Dupont",
         prenom: "Marie",
-        dateNaissance: new Date(1978, 1, 1),
+        dateNaissance: "01/01/1978",
         adresse: {
           rue: "rue du Soleil",
           codePostal: "75000",
@@ -33,7 +33,7 @@ export const enfants: Enfant[] = [
         genre: "M",
         nom: "Martin",
         prenom: "Jean",
-        dateNaissance: new Date(1985, 7, 14),
+        dateNaissance: "14/05/1985",
         adresse: {
           rue: "rue de la Lune",
           codePostal: "13000",
@@ -54,14 +54,14 @@ export const enfants: Enfant[] = [
     nom: "Elliott",
     prenom: "Barlow",
     genre: "Garçon",
-    dateNaissance: new Date(2023, 2, 14),
+    dateNaissance: "14/02/2023",
     parents: [
       {
         divorcer: false,
         genre: "F",
         nom: "Leroy",
         prenom: "Anne",
-        dateNaissance: new Date(1990, 3, 20),
+        dateNaissance: "20/05/1990",
         adresse: {
           rue: "rue des Fleurs",
           codePostal: "69000",
@@ -82,7 +82,7 @@ export const enfants: Enfant[] = [
         genre: "M",
         nom: "Petit",
         prenom: "Nicolas",
-        dateNaissance: new Date(1982, 11, 5),
+        dateNaissance: "05/11/1982",
         adresse: {
           rue: "rue du Boulevard",
           codePostal: "34000",
@@ -104,14 +104,14 @@ export const enfants: Enfant[] = [
     nom: "Leach",
     prenom: "Julie",
     genre: "Fille",
-    dateNaissance: new Date(2020, 2, 24),
+    dateNaissance: "24/02/2020",
     parents: [
       {
         divorcer: true,
         genre: "F",
         nom: "Dupont",
         prenom: "Marie",
-        dateNaissance: new Date(1978, 1, 1),
+        dateNaissance: "01/01/1978",
         adresse: {
           rue: "rue du Soleil",
           codePostal: "75000",
@@ -131,7 +131,7 @@ export const enfants: Enfant[] = [
         genre: "M",
         nom: "Martin",
         prenom: "Jean",
-        dateNaissance: new Date(1985, 7, 14),
+        dateNaissance: "14/07/1985",
         adresse: {
           rue: "rue de la Lune",
           codePostal: "13000",

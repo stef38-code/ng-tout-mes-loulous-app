@@ -12,7 +12,7 @@ export class ErrorHandlerService {
       console.error('An error occurred:', error.error.message);
     } else {
       // Backend returned an unsuccessful response code
-      console.error(`Backend returned code ${error.status}, body was: `, error.error);
+      console.error(`Backend returned code ${error?.status}, body was: `, error);
       this.handleServerError(error);
     }
   }
