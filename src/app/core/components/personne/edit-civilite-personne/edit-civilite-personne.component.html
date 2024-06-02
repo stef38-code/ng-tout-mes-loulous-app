@@ -18,9 +18,9 @@
     <div class="field w-full pt-4 pr-4">
       <p-floatLabel>
         <input
-          [ngModel]="personne.nom"
           id="nom"
           class="w-full"
+          [formControl]="nom"
           pInputText/>
         <label for="nom">Nom </label>
       </p-floatLabel>
@@ -28,9 +28,9 @@
     <div class="field w-full pt-4 pr-4">
       <p-floatLabel>
         <input
-          [ngModel]="personne.prenom"
           id="prenom"
           class="w-full"
+          [formControl]="prenom"
           pInputText/>
         <label for="prenom">Prénom </label>
       </p-floatLabel>

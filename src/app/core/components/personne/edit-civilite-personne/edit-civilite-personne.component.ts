@@ -1,6 +1,6 @@
-import {Component, Input} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {Personne} from "@model/personne";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {NgIf} from "@angular/common";
 import {PanelModule} from "primeng/panel";
 import {SelectButtonModule} from "primeng/selectbutton";
@@ -29,16 +29,41 @@ import {FloatLabelModule} from "primeng/floatlabel";
   templateUrl: './edit-civilite-personne.component.html',
   styleUrl: './edit-civilite-personne.component.scss'
 })
-export class EditCivilitePersonneComponent {
+export class EditCivilitePersonneComponent implements OnInit {
 
+  @Input() index: number = 0;
   @Input() personne: Personne;
   @Input() isParent: boolean = false;
+  @Input() parentFormGroup: FormGroup;
+
   maxDate: Date;
   anniversaire: Date;
+
   stateOptions: any[] = [{label: 'Madame', value: 'F'}, {label: 'Monsieur', value: 'M'}];
-  constructor() {
+  civiliteForm: FormGroup;
+  nom: FormControl<string> = new FormControl<string | null>(null);
+  prenom: FormControl<string> = new FormControl<string | null>(null);
+
+  constructor(private fb: FormBuilder, private cd: ChangeDetectorRef) {
     this.maxDate = new Date();
-    //this.anniversaire = this.getDate(this.personne.dateNaissance);
+
+  }
+
+  ngOnInit(): void {
+
+    this.civiliteForm = this.fb.group({
+      nom: [this.personne.nom, Validators.required],
+      prenom: [this.personne.prenom, Validators.required],
+    });
+
+
+    this.parentFormGroup.addControl(`civilite ${this.index}`, this.civiliteForm);
+
+
+    /*    this.nom.setValue(this.personne.nom);
+        this.prenom.setValue(this.personne.prenom);*/
+    this.cd.detectChanges();
+
   }
 
 

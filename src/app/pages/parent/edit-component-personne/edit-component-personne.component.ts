@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Personne} from "@model/personne";
 import {
   EditTelephonePersonneComponent
@@ -14,6 +14,7 @@ import {PanelModule} from "primeng/panel";
 import {
   EditTelEmailPersonneComponent
 } from "@core/components/personne/edit-tel-email-personne/edit-tel-email-personne.component";
+import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
 
 
 @Component({
@@ -25,21 +26,31 @@ import {
     EditAdressePersonneComponent,
     EditEmailPersonneComponent,
     PanelModule,
-    EditTelEmailPersonneComponent
+    EditTelEmailPersonneComponent,
+    ReactiveFormsModule
 
   ],
   providers: [],
   templateUrl: './edit-component-personne.component.html',
   styleUrl: './edit-component-personne.component.scss'
 })
-export class EditComponentPersonne {
-  @Input()
-  parent: Personne;
+export class EditComponentPersonne implements OnInit {
+  @Input() parentFormGroup: FormGroup;
+
+  editComponentPersonne: FormGroup;
+
+  @Input() parent: Personne;
 
   maxDate: Date;
   @Input() index: number;
 
-  constructor() {
+  constructor(private fb: FormBuilder) {
     this.maxDate = new Date();
+    this.editComponentPersonne = this.fb.group({});
+  }
+
+  ngOnInit(): void {
+    console.log("Edit-component-ngOnInit", this.parentFormGroup);
+    this.parentFormGroup.addControl(`editComponentPersonne ${this.index}`, this.editComponentPersonne);
   }
 }

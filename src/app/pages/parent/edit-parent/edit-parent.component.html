@@ -1,9 +1,12 @@
 @if (current$ | async; as enfant) {
-  @if (enfant.parents) {
+
+  <form [formGroup]="formGroup" (ngSubmit)="submit(enfant)">
+    @if (enfant.parents) {
     <div class="flex overflow-hidden">
       @for (parent of enfant.parents; track $index) {
         <div class="flex-grow-1">
-          <edit-component-personne [index]="$index" [parent]="parent"></edit-component-personne>
+          <edit-component-personne [parentFormGroup]="formGroup" [index]="$index"
+                                   [parent]="parent"></edit-component-personne>
         </div>
       }
     </div>
@@ -12,8 +15,10 @@
         <p-button
           severity="success"
           class="mat-padding-10"
-          (onClick)="goToListEnfant(enfant)"
+          (onClick)="saveAndGotoListEnfant(enfant)"
           text="true"
+          type="submit"
+          [disabled]="formGroup.valid"
         >Enregistrer
         </p-button>
       </div>
@@ -35,4 +40,6 @@
       </div>
     </div>
   }
+  </form>
 }
+

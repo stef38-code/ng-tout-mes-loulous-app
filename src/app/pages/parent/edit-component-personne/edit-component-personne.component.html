@@ -5,7 +5,12 @@
     Parent {{ index + 1 }}
     </span>
   </div>
-  <edit-civilite-personne [isParent]="true" [personne]="parent"></edit-civilite-personne>
+  <edit-civilite-personne
+    [parentFormGroup]="editComponentPersonne"
+    [index]="index"
+    [isParent]="true"
+    [personne]="parent"
+  ></edit-civilite-personne>
   <edit-adresse-personne [adresse]="parent.adresse"></edit-adresse-personne>
   <edit-tel-email-personne [parent]="parent"></edit-tel-email-personne>
 </div>
