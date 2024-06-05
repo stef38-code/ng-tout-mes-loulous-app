@@ -23,6 +23,9 @@
       "dom"
     ],
     "paths": {
+      "@config/*": [
+        "./src/app/config/*"
+      ],
       "@data/*": [
         "./src/app/data/*"
       ],
