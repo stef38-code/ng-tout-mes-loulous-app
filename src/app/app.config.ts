@@ -1,4 +1,4 @@
-import {ApplicationConfig, importProvidersFrom, isDevMode} from '@angular/core';
+import {ApplicationConfig, EnvironmentProviders, importProvidersFrom, isDevMode} from '@angular/core';
 import {provideRouter} from '@angular/router';
 
 import {routes} from './app.routes';
@@ -7,7 +7,7 @@ import {provideAnimationsAsync} from '@angular/platform-browser/animations/async
 import {provideAnimations} from "@angular/platform-browser/animations";
 import {InMemoryDataService} from "@core/services/in-memory-data.service";
 import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
-import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
 import {provideClientHydration} from "@angular/platform-browser";
 import {provideStoreDevtools} from "@ngrx/store-devtools";
 import {provideEffects} from '@ngrx/effects';
@@ -17,6 +17,20 @@ import {ErrorInterceptor} from "@core/services/error.interceptor";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {HttpLoaderFactory} from "./app.component";
 
+
+const inMemoryWebApiProviders: EnvironmentProviders = importProvidersFrom([
+  HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false})
+]);
+const translateProviders: EnvironmentProviders = importProvidersFrom([
+  TranslateModule.forRoot({
+    defaultLanguage: 'fr',
+    loader: {
+      provide: TranslateLoader,
+      useFactory: HttpLoaderFactory,
+      deps: [HttpClient]
+    }
+  })
+]);
 export const appConfig: ApplicationConfig = {
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
@@ -24,16 +38,9 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimationsAsync(),
     provideAnimations(),
-    importProvidersFrom(HttpClientModule),
-    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false})),
-    importProvidersFrom(TranslateModule.forRoot({
-      defaultLanguage: 'fr',
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
-    })),
+    provideHttpClient(withInterceptorsFromDi()),
+    inMemoryWebApiProviders,
+    translateProviders,
     provideStore(appStore),
     provideEffects(appEffects),
     EnfantService,
