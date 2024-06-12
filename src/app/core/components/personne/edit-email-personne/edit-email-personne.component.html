@@ -1,23 +1,12 @@
 <div class="flex flex-column pt-3">
   <div class="flex align-items-center justify-content-left gap-2" style="color: cadetblue;">
-    <!-- titre -->
     <span class="font-bold">
     Emails
     </span>
   </div>
     @if (emails.length > 0) {
       @for (item of emails; track $index) {
-        <div class="field pt-4 pr-4">
-          <p-floatLabel>
-          <input
-            pInputText
-            id="numero"
-            [ngModel]="item.adresse"
-            class="w-full"
-          />
-          <label for="numero">{{ item.type }}</label>
-        </p-floatLabel>
-        </div>
+        <mail-component [email]="item" [index]="index"></mail-component>
       }
     }
 </div>

@@ -1,4 +1,4 @@
-<div class="flex flex-column flex-wrap pt-3 pl-3">
+<div class="flex flex-column flex-wrap pt-3 pl-3" [formGroup]='formEditComponentPersonne'>
   <div class="flex align-items-center justify-content-center gap-2" style="color: #8b8f8f;">
     <!-- titre -->
     <span class="font-bold">
@@ -6,11 +6,14 @@
     </span>
   </div>
   <edit-civilite-personne
-    [parentFormGroup]="editComponentPersonne"
     [index]="index"
     [isParent]="true"
-    [personne]="parent"
+    [personne]="personne"
   ></edit-civilite-personne>
-  <edit-adresse-personne [adresse]="parent.adresse"></edit-adresse-personne>
-  <edit-tel-email-personne [parent]="parent"></edit-tel-email-personne>
+  <edit-adresse-personne
+    [index]="index"
+    [adresse]="personne.adresse"></edit-adresse-personne>
+  <edit-tel-email-personne
+    [index]="index"
+    [personne]="personne"></edit-tel-email-personne>
 </div>

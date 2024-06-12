@@ -1,4 +1,4 @@
-<div class="flex flex-column pt-3">
+<div class="flex flex-column pt-3" [formGroup]="adresseForm" ngDefaultControl>
   <div class="flex align-items-center justify-content-left gap-2" style="color: cadetblue;">
     <!-- titre -->
     <span class="font-bold">
@@ -8,7 +8,7 @@
   <div class="field pt-4 pr-4">
       <p-floatLabel>
         <input
-          [ngModel]="adresse.rue"
+          formControlName="rue"
           id="rue"
           pInputText
           class="w-full"
@@ -20,7 +20,7 @@
     <div class="field w-full pt-4 pr-4">
       <p-floatLabel>
         <input
-          [ngModel]="adresse.codePostal"
+          formControlName="codePostal"
           id="codePostal"
           class="w-full"
           pInputText/>
@@ -31,7 +31,7 @@
     <div class="field w-full pt-4 pr-4">
       <p-floatLabel>
         <input
-          [ngModel]="adresse.ville"
+          formControlName="ville"
           id="ville"
           class="w-full"
           pInputText/>

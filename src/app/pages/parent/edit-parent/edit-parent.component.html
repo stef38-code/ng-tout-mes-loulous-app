@@ -1,12 +1,12 @@
 @if (current$ | async; as enfant) {
 
-  <form [formGroup]="formGroup" (ngSubmit)="submit(enfant)">
+  <form [formGroup]="formEditParentComponent" (ngSubmit)="submit(enfant)">
     @if (enfant.parents) {
     <div class="flex overflow-hidden">
       @for (parent of enfant.parents; track $index) {
         <div class="flex-grow-1">
-          <edit-component-personne [parentFormGroup]="formGroup" [index]="$index"
-                                   [parent]="parent"></edit-component-personne>
+          <edit-component-personne [index]="$index"
+                                   [personne]="parent"></edit-component-personne>
         </div>
       }
     </div>
@@ -18,7 +18,7 @@
           (onClick)="saveAndGotoListEnfant(enfant)"
           text="true"
           type="submit"
-          [disabled]="formGroup.valid"
+          [disabled]="formEditParentComponent.valid"
         >Enregistrer
         </p-button>
       </div>
@@ -41,5 +41,9 @@
     </div>
   }
   </form>
+  <pre>
+    {{ formEditParentComponent.value | json }}
+    {{ formEditParentComponent.status | json }}
+  </pre>
 }
 

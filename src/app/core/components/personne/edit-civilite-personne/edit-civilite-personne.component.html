@@ -1,4 +1,4 @@
-<div class="flex flex-column pt-3">
+<div class="flex flex-column pt-3" [formGroup]="civiliteForm">
   <div class="flex align-items-center justify-content-left gap-2" style="color: cadetblue;">
     <!-- titre -->
     <span class="font-bold">
@@ -7,10 +7,10 @@
   </div>
   <div class="flex overflow-hidden">
     <div class="field w-full pt-4 pr-4">
-      <p-selectButton [ngModel]="personne.genre" [options]="stateOptions"></p-selectButton>
+      <p-selectButton formControlName="genre" [options]="stateOptions"></p-selectButton>
     </div>
     <div class="field w-full pt-4 pr-4">
-      <p-checkbox *ngIf="isParent" [ngModel]="personne.divorcer" binary="true"
+      <p-checkbox *ngIf="isParent" formControlName="divorce" binary="true"
                   label="Divorcé"></p-checkbox>
     </div>
   </div>
@@ -20,7 +20,7 @@
         <input
           id="nom"
           class="w-full"
-          [formControl]="nom"
+          formControlName="nom"
           pInputText/>
         <label for="nom">Nom </label>
       </p-floatLabel>
@@ -30,7 +30,7 @@
         <input
           id="prenom"
           class="w-full"
-          [formControl]="prenom"
+          formControlName="prenom"
           pInputText/>
         <label for="prenom">Prénom </label>
       </p-floatLabel>
@@ -39,7 +39,7 @@
   <div class="flex flex-row pt-4">
     <p-floatLabel>
       <p-calendar [maxDate]="maxDate"
-                  [ngModel]="personne.dateNaissance" [showIcon]="true"
+                  formControlName="dateNaissance" [showIcon]="true"
                   dateFormat="dd/mm/yy"
                   id="dateNaiss"></p-calendar>
       <label for="dateNaiss">Date de naissance </label>

@@ -5,6 +5,7 @@ import {PanelModule} from "primeng/panel";
 import {SharedModule} from "primeng/api";
 import {InputTextModule} from "primeng/inputtext";
 import {FloatLabelModule} from "primeng/floatlabel";
+import {TelephoneComponentComponent} from "@core/components/commun/telephone-component/telephone-component.component";
 
 @Component({
   selector: 'edit-telephone-personne',
@@ -14,11 +15,13 @@ import {FloatLabelModule} from "primeng/floatlabel";
     PanelModule,
     SharedModule,
     InputTextModule,
-    FloatLabelModule
+    FloatLabelModule,
+    TelephoneComponentComponent
   ],
   templateUrl: './edit-telephone-personne.component.html',
   styleUrl: './edit-telephone-personne.component.scss'
 })
 export class EditTelephonePersonneComponent {
   @Input() telephones: Telephone[];
+  @Input() index: number = 0;
 }

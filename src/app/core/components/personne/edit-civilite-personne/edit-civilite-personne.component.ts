@@ -1,6 +1,15 @@
-import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Personne} from "@model/personne";
-import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
+import {
+  ControlContainer,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  FormGroupDirective,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators
+} from "@angular/forms";
 import {NgIf} from "@angular/common";
 import {PanelModule} from "primeng/panel";
 import {SelectButtonModule} from "primeng/selectbutton";
@@ -24,47 +33,44 @@ import {FloatLabelModule} from "primeng/floatlabel";
     FloatLabelModule,
 
   ],
-  providers: [
-  ],
+  viewProviders: [{
+    provide: ControlContainer,
+    useExisting: FormGroupDirective,
+  }],
   templateUrl: './edit-civilite-personne.component.html',
   styleUrl: './edit-civilite-personne.component.scss'
 })
 export class EditCivilitePersonneComponent implements OnInit {
-
+  parent: FormGroupDirective;
   @Input() index: number = 0;
   @Input() personne: Personne;
   @Input() isParent: boolean = false;
-  @Input() parentFormGroup: FormGroup;
 
   maxDate: Date;
   anniversaire: Date;
 
   stateOptions: any[] = [{label: 'Madame', value: 'F'}, {label: 'Monsieur', value: 'M'}];
   civiliteForm: FormGroup;
-  nom: FormControl<string> = new FormControl<string | null>(null);
-  prenom: FormControl<string> = new FormControl<string | null>(null);
 
-  constructor(private fb: FormBuilder, private cd: ChangeDetectorRef) {
+
+  constructor(private fb: FormBuilder, parent: FormGroupDirective) {
     this.maxDate = new Date();
-
+    this.parent = parent;
   }
 
   ngOnInit(): void {
 
     this.civiliteForm = this.fb.group({
-      nom: [this.personne.nom, Validators.required],
-      prenom: [this.personne.prenom, Validators.required],
+      nom: new FormControl(this.personne.nom, Validators.required),
+      prenom: new FormControl(this.personne.prenom, Validators.required),
+      genre: new FormControl(this.personne.genre, Validators.required),
+      divorce: new FormControl(this.personne.divorcer, Validators.required),
+      dateNaissance: new FormControl(this.personne.divorcer, Validators.required),
     });
 
 
-    this.parentFormGroup.addControl(`civilite ${this.index}`, this.civiliteForm);
-
-
-    /*    this.nom.setValue(this.personne.nom);
-        this.prenom.setValue(this.personne.prenom);*/
-    this.cd.detectChanges();
+    this.parent.form.addControl(`${this.index}_civilite`, this.civiliteForm);
 
   }
-
 
 }

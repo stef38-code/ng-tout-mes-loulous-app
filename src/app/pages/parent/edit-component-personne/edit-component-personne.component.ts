@@ -14,7 +14,7 @@ import {PanelModule} from "primeng/panel";
 import {
   EditTelEmailPersonneComponent
 } from "@core/components/personne/edit-tel-email-personne/edit-tel-email-personne.component";
-import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
+import {ControlContainer, FormGroup, FormGroupDirective, ReactiveFormsModule} from "@angular/forms";
 
 
 @Component({
@@ -30,27 +30,24 @@ import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
     ReactiveFormsModule
 
   ],
-  providers: [],
+  viewProviders: [{
+    provide: ControlContainer,
+    useExisting: FormGroupDirective,
+  }],
   templateUrl: './edit-component-personne.component.html',
   styleUrl: './edit-component-personne.component.scss'
 })
 export class EditComponentPersonne implements OnInit {
-  @Input() parentFormGroup: FormGroup;
-
-  editComponentPersonne: FormGroup;
-
-  @Input() parent: Personne;
-
-  maxDate: Date;
+  formEditComponentPersonne = new FormGroup({});
+  @Input() personne: Personne;
+  parent: FormGroupDirective;
   @Input() index: number;
 
-  constructor(private fb: FormBuilder) {
-    this.maxDate = new Date();
-    this.editComponentPersonne = this.fb.group({});
+  constructor(parent: FormGroupDirective) {
+    this.parent = parent;
   }
 
   ngOnInit(): void {
-    console.log("Edit-component-ngOnInit", this.parentFormGroup);
-    this.parentFormGroup.addControl(`editComponentPersonne ${this.index}`, this.editComponentPersonne);
+    this.parent.form.addControl(`${this.index}_parent`, this.formEditComponentPersonne);
   }
 }

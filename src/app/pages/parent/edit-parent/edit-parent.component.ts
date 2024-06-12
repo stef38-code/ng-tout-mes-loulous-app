@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
+import {Component} from '@angular/core';
+import {AsyncPipe, JsonPipe, NgForOf, NgIf} from "@angular/common";
 import {CardEnfantEditComponent} from "@core/components/enfant/card-enfant-edit/card-enfant-edit.component";
 import {EditComponentPersonne} from "@pages/parent/edit-component-personne/edit-component-personne.component";
 import {Observable} from "rxjs";
@@ -9,7 +9,7 @@ import {AppState} from "@core/store/store";
 import {currentSelector} from "@core/store/store.selector";
 import {Router} from "@angular/router";
 import {ButtonModule} from "primeng/button";
-import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
+import {FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-edit-parent',
@@ -21,22 +21,20 @@ import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
     NgForOf,
     NgIf,
     ButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    JsonPipe
   ],
   templateUrl: './edit-parent.component.html',
   styleUrl: './edit-parent.component.scss'
 })
-export class EditParentComponent implements OnInit {
+export class EditParentComponent {
   current$: Observable<Enfant>;
-  @Input()
-  formGroup: FormGroup;
+  formEditParentComponent = new FormGroup({});
 
-  constructor(private formBuilder: FormBuilder,
-              private router: Router,
+  constructor(private router: Router,
               private store: Store<AppState>) {
     this.current$ = this.store.select(currentSelector);
-    this.formGroup = this.formBuilder.group({});
-    console.log("edit-parent", this.formGroup);
   }
 
   saveAndGotoListEnfant(enfant: Enfant) {
@@ -51,9 +49,6 @@ export class EditParentComponent implements OnInit {
     this.router.navigate(["/enfant/editer"]);
   }
 
-  ngOnInit(): void {
-
-  }
 
   submit(enfant: Enfant) {
 

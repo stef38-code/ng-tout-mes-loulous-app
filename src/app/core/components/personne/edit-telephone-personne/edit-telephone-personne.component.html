@@ -7,17 +7,7 @@
   </div>
     @if (telephones.length > 0) {
       @for (item of telephones; track $index) {
-        <div class="field pt-4 pr-4">
-          <p-floatLabel>
-          <input
-            pInputText
-            id="numero"
-            [ngModel]="item.numero"
-            class="w-full"
-          />
-          <label for="numero">{{ item.type }}</label>
-        </p-floatLabel>
-        </div>
+        <telephone-component [telephone]="item" [index]="index"></telephone-component>
       }
     }
 
