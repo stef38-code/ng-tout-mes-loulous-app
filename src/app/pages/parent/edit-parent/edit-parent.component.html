@@ -18,7 +18,7 @@
           (onClick)="saveAndGotoListEnfant(enfant)"
           text="true"
           type="submit"
-          [disabled]="formEditParentComponent.valid"
+          [disabled]="formEditParentComponent.invalid"
         >Enregistrer
         </p-button>
       </div>
@@ -41,9 +41,11 @@
     </div>
   }
   </form>
-  <pre>
+  @if (formEditParentComponent) {
+    <pre>
     {{ formEditParentComponent.value | json }}
     {{ formEditParentComponent.status | json }}
   </pre>
+  }
 }
 

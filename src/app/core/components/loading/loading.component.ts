@@ -21,7 +21,6 @@ import {ProgressSpinnerModule} from "primeng/progressspinner";
 export class LoadingComponent {
   @Input() target: any;
   blockedPanel$: Observable<boolean>;
-
   constructor(private store: Store<AppState>) {
     this.blockedPanel$ = this.store.select(loadingEnfantSelector);
   }

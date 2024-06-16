@@ -43,7 +43,7 @@ export class MailComponentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.table(this.email)
+    //console.table(this.email)
     this.mailForm = this.fb.group({
       adresse: new FormControl(this.email.adresse, Validators.required),
     });
