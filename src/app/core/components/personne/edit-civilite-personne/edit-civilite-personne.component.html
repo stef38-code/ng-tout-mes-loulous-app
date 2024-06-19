@@ -23,6 +23,16 @@
           formControlName="nom"
           pInputText/>
         <label for="nom">Nom </label>
+        @if (nom?.invalid) {
+          <p-messages
+            severity="error"
+            [(value)]="messagesNom"
+            [enableService]="false"
+            [closable]="false"/>
+          <div class="alert alert-danger" role="alert">
+            Error
+          </div>
+        }
       </p-floatLabel>
     </div>
     <div class="field w-full pt-4 pr-4">
