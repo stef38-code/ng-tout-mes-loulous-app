@@ -1,56 +1,48 @@
-<mat-card class="no-border-panel-card">
-  <mat-card-title class="border-title-panel-card-editor">Civilité</mat-card-title>
-  <mat-card-content style="padding-bottom:0;">
-    <div fxFlexFill fxLayout="column" style="padding: 10px">
-      <div>
-        <div class="flex-row-p5">
-          <div fxFlex>
-            <mat-button-toggle-group [(ngModel)]="personne.genre" [value]="personne.genre" name="genre">
-              <mat-button-toggle value="F">
-                Madame
-              </mat-button-toggle>
-              <mat-button-toggle value="M">
-                Monsieur
-              </mat-button-toggle>
-            </mat-button-toggle-group>
-          </div>
-          <div fxFlex>
-            <mat-checkbox
-              *ngIf="isParent"
-              [ngModel]="personne.divorcer"
-              color="primary">Divorcé
-            </mat-checkbox>
-          </div>
-        </div>
-        <div>
-          <div class="flex-row-p5">
-            <div fxFlex="50%">
-              <mat-form-field appearance="outline" fxFlex>
-                <mat-label>Nom:</mat-label>
-                <input [ngModel]="personne.nom" matInput>
-              </mat-form-field>
-            </div>
-            <div fxFlex="50%">
-              <mat-form-field appearance="outline" fxFlex style="padding-left: 10px">
-                <mat-label>Prénom:</mat-label>
-                <input [ngModel]="personne.prenom" matInput>
-              </mat-form-field>
-            </div>
-          </div>
-        </div>
-        <div>
-          <mat-form-field appearance="outline">
-            <mat-label>Date de naissance</mat-label>
-            <input [(ngModel)]="personne.dateNaissance" [matDatepicker]="picker" [max]="maxDate" matInput
-                   name="dateNaiss">
-            <mat-datepicker-toggle [for]="picker" matIconSuffix></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field>
-        </div>
-      </div>
-      <div>
-
-      </div>
+<div class="flex flex-column pt-3" [formGroup]="civiliteForm">
+  <div class="flex align-items-center justify-content-left gap-2" style="color: cadetblue;">
+    <!-- titre -->
+    <span class="font-bold">
+                Civilité
+      </span>
+  </div>
+  <div class="flex overflow-hidden">
+    <div class="field w-full pt-4 pr-4">
+      <p-selectButton formControlName="genre" [options]="stateOptions"></p-selectButton>
     </div>
-  </mat-card-content>
-</mat-card>
+    <div class="field w-full pt-4 pr-4">
+      <p-checkbox *ngIf="isParent" formControlName="divorce" binary="true"
+                  label="Divorcé"></p-checkbox>
+    </div>
+  </div>
+  <div class="flex overflow-hidden">
+    <div class="field w-full pt-4 pr-4">
+      <p-floatLabel>
+        <input
+          id="nom"
+          class="w-full"
+          formControlName="nom"
+          pInputText/>
+        <label for="nom">Nom </label>
+      </p-floatLabel>
+    </div>
+    <div class="field w-full pt-4 pr-4">
+      <p-floatLabel>
+        <input
+          id="prenom"
+          class="w-full"
+          formControlName="prenom"
+          pInputText/>
+        <label for="prenom">Prénom </label>
+      </p-floatLabel>
+    </div>
+  </div>
+  <div class="flex flex-row pt-4">
+    <p-floatLabel>
+      <p-calendar [maxDate]="maxDate"
+                  formControlName="dateNaissance" [showIcon]="true"
+                  dateFormat="dd/mm/yy"
+                  id="dateNaiss"></p-calendar>
+      <label for="dateNaiss">Date de naissance </label>
+    </p-floatLabel>
+  </div>
+</div>

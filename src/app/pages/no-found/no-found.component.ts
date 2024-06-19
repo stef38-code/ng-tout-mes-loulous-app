@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
-import {MatProgressBarModule} from "@angular/material/progress-bar";
-import {FlexLayoutModule} from "@angular/flex-layout";
+import {Component} from '@angular/core';
+import {ProgressBarModule} from 'primeng/progressbar';
+import {ToastModule} from 'primeng/toast';
 
 @Component({
   selector: 'app-no-found',
   standalone: true,
-  imports: [MatProgressBarModule, FlexLayoutModule],
+  imports: [ProgressBarModule, ToastModule],
   templateUrl: './no-found.component.html',
   styleUrl: './no-found.component.scss'
 })

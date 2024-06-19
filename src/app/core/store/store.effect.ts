@@ -24,7 +24,6 @@ export class EnfantsEffects {
       )
     )
   );
-
   constructor(private actions$: Actions, private enfantService: EnfantService) {
   }
 }

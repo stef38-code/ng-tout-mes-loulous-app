@@ -6,8 +6,7 @@ import {currentSelector} from "@core/store/store.selector";
 import {Store} from "@ngrx/store";
 import {AppState} from "@core/store/store";
 import {CardEnfantEditComponent} from "@core/components/enfant/card-enfant-edit/card-enfant-edit.component";
-import {CardParentEditComponent} from "@pages/parent/card-parent-edit/card-parent-edit.component";
-import {FlexModule} from "@angular/flex-layout";
+import {EditComponentPersonne} from "@pages/parent/edit-component-personne/edit-component-personne.component";
 import {RouterLink} from "@angular/router";
 
 @Component({
@@ -18,9 +17,8 @@ import {RouterLink} from "@angular/router";
     AsyncPipe,
     DatePipe,
     CardEnfantEditComponent,
-    CardParentEditComponent,
+    EditComponentPersonne,
     NgForOf,
-    FlexModule,
     RouterLink
   ],
   providers: [],

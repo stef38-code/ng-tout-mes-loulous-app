@@ -1,27 +1,43 @@
-<mat-card class="no-border-panel-card">
-  <mat-card-title class="border-title-panel-card-editor">Adresse</mat-card-title>
-  <mat-card-content style="padding-bottom:0;">
-    <div class="flex-column-p5">
-      <mat-form-field appearance="outline" fxFlex>
-        <mat-label>Rue:</mat-label>
-        <input [ngModel]="adresse.rue" matInput>
-      </mat-form-field>
-      <div>
-        <div class="flex-row-p5">
-          <div fxFlex="25%">
-            <mat-form-field appearance="outline" fxFlex>
-              <mat-label>Code postal:</mat-label>
-              <input [ngModel]="adresse.codePostal" matInput>
-            </mat-form-field>
-          </div>
-          <div fxFlex>
-            <mat-form-field appearance="outline" fxFlex style="padding-left: 10px">
-              <mat-label>Ville:</mat-label>
-              <input [ngModel]="adresse.ville" matInput>
-            </mat-form-field>
-          </div>
-        </div>
-      </div>
+<div class="flex flex-column pt-3" [formGroup]="adresseForm" ngDefaultControl>
+  <div class="flex align-items-center justify-content-left gap-2" style="color: cadetblue;">
+    <!-- titre -->
+    <span class="font-bold">
+    Adresse
+    </span>
+  </div>
+  <div class="field pt-4 pr-4">
+      <p-floatLabel>
+        <input
+          formControlName="rue"
+          id="rue"
+          pInputText
+          class="w-full"
+        />
+        <label for="rue">Rue </label>
+      </p-floatLabel>
     </div>
-  </mat-card-content>
-</mat-card>
+  <div class="flex overflow-hidden">
+    <div class="field w-full pt-4 pr-4">
+      <p-floatLabel>
+        <input
+          formControlName="codePostal"
+          id="codePostal"
+          class="w-full"
+          pInputText/>
+        <label for="codePostal"
+        >Code postal </label>
+      </p-floatLabel>
+    </div>
+    <div class="field w-full pt-4 pr-4">
+      <p-floatLabel>
+        <input
+          formControlName="ville"
+          id="ville"
+          class="w-full"
+          pInputText/>
+        <label for="ville"
+        >Ville</label>
+      </p-floatLabel>
+    </div>
+  </div>
+</div>

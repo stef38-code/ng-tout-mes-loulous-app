@@ -1,19 +1,21 @@
-import {ApplicationConfig, importProvidersFrom, isDevMode} from '@angular/core';
+import {ApplicationConfig, isDevMode} from '@angular/core';
 import {provideRouter} from '@angular/router';
 
 import {routes} from './app.routes';
 import {provideStore} from '@ngrx/store';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 import {provideAnimations} from "@angular/platform-browser/animations";
-import {InMemoryDataService} from "@core/services/in-memory-data.service";
-import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
-import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi} from "@angular/common/http";
 import {provideClientHydration} from "@angular/platform-browser";
 import {provideStoreDevtools} from "@ngrx/store-devtools";
 import {provideEffects} from '@ngrx/effects';
 import {appEffects, appStore} from "@core/store/store";
 import {EnfantService} from "@core/services/enfant-service.service";
 import {ErrorInterceptor} from "@core/services/error.interceptor";
+
+import {inMemoryWebApiProviders} from "@config/inMemoryWebApiProviders";
+import {translateProviders} from "@config/translateProviders";
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -22,8 +24,9 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideAnimationsAsync(),
     provideAnimations(),
-    importProvidersFrom(HttpClientModule),
-    importProvidersFrom(HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false})),
+    provideHttpClient(withInterceptorsFromDi()),
+    inMemoryWebApiProviders,
+    translateProviders,
     provideStore(appStore),
     provideEffects(appEffects),
     EnfantService,

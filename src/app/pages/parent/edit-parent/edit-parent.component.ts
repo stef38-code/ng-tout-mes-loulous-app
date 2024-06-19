@@ -1,15 +1,15 @@
 import {Component} from '@angular/core';
-import {AsyncPipe, NgForOf, NgIf} from "@angular/common";
+import {AsyncPipe, JsonPipe, NgForOf, NgIf} from "@angular/common";
 import {CardEnfantEditComponent} from "@core/components/enfant/card-enfant-edit/card-enfant-edit.component";
-import {CardParentEditComponent} from "@pages/parent/card-parent-edit/card-parent-edit.component";
-import {FlexModule} from "@angular/flex-layout";
+import {EditComponentPersonne} from "@pages/parent/edit-component-personne/edit-component-personne.component";
 import {Observable} from "rxjs";
 import {Enfant} from "@model/enfant";
 import {Store} from "@ngrx/store";
 import {AppState} from "@core/store/store";
 import {currentSelector} from "@core/store/store.selector";
-import {MatButtonModule} from "@angular/material/button";
 import {Router} from "@angular/router";
+import {ButtonModule} from "primeng/button";
+import {FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-edit-parent',
@@ -17,27 +17,40 @@ import {Router} from "@angular/router";
   imports: [
     AsyncPipe,
     CardEnfantEditComponent,
-    CardParentEditComponent,
-    FlexModule,
+    EditComponentPersonne,
     NgForOf,
     NgIf,
-    MatButtonModule
+    ButtonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    JsonPipe
   ],
   templateUrl: './edit-parent.component.html',
   styleUrl: './edit-parent.component.scss'
 })
 export class EditParentComponent {
   current$: Observable<Enfant>;
+  formEditParentComponent = new FormGroup({});
 
-  constructor(private router: Router, private store: Store<AppState>) {
+  constructor(private router: Router,
+              private store: Store<AppState>) {
     this.current$ = this.store.select(currentSelector);
   }
 
-  goToListEnfant(enfant: Enfant) {
+  saveAndGotoListEnfant(enfant: Enfant) {
     this.router.navigate(["/enfant/liste"]);
   }
 
   goToListEnfants() {
     this.router.navigate(["/enfant/liste"]);
+  }
+
+  goToEditEnfant() {
+    this.router.navigate(["/enfant/editer"]);
+  }
+
+
+  submit(enfant: Enfant) {
+
   }
 }

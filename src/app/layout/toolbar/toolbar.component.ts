@@ -1,21 +1,34 @@
-import {
-  Component,
- Input,
+import {Component,} from '@angular/core';
+import {ToolbarModule} from "primeng/toolbar";
+import {AvatarModule} from "primeng/avatar";
+import {SharedModule} from "primeng/api";
+import {Observable} from "rxjs";
+import {SidebarItem} from "@layout/model/menu-sidebar.interface";
+import {SidebarService} from "@layout/services/sidebar.service";
+import {AsyncPipe, NgOptimizedImage} from "@angular/common";
+import {ActivatedRoute, Router} from "@angular/router";
+import {ButtonModule} from "primeng/button";
 
-} from '@angular/core';
-import {MatDrawer} from "@angular/material/sidenav";
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatIconModule} from "@angular/material/icon";
-import {MatIconButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-toolbar',
   standalone: true,
-  imports: [MatDrawer, MatToolbarModule, MatIconModule, MatIconButton],
+  imports: [ToolbarModule, AvatarModule, SharedModule, AsyncPipe, ButtonModule, NgOptimizedImage],
+  providers: [
+    SidebarService,],
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.scss'
 })
 export class ToolbarComponent {
+  sidebarItems$: Observable<SidebarItem[]>;
 
-  @Input() drawer: MatDrawer;
+  constructor(private router: Router,
+              private route: ActivatedRoute,
+              private sidebarService: SidebarService) {
+    this.sidebarItems$ = this.sidebarService.getSidebarItems();
+  }
+
+  goTo(link: string) {
+    this.router.navigate([link], {relativeTo: this.route});
+  }
 }

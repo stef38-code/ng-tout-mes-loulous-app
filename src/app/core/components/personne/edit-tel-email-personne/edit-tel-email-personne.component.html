@@ -1,0 +1,8 @@
+<div class="grid">
+  <div class="col" [formGroup]='formTelephones'>
+    <edit-telephone-personne [telephones]="personne.telephones" [index]="index"></edit-telephone-personne>
+  </div>
+  <div class="col" [formGroup]='formEmails'>
+    <edit-email-personne [emails]="personne.emails" [index]="index"></edit-email-personne>
+  </div>
+</div>

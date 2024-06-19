@@ -1,6 +1,6 @@
-<!-- 100 % hauteur et largeur -->
-<div *ngIf="current$  | async as enfant" fxFlexFill fxLayout="row">
-  <div fxFlex>
-    <card-enfant-edit [item]="enfant"></card-enfant-edit>
-  </div>
-</div>
+@if (current$|async; as enfant) {
+  <card-enfant-edit [item]="enfant"></card-enfant-edit>
+} @else {
+  <H1> Pas possible d'éditer l'enfant</H1>
+}
+

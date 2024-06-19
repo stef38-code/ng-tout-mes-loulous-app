@@ -10,9 +10,7 @@ export interface EnfantState {
 
 export const initialState: EnfantState = {
   enfants: [],
-  current: new Enfant(
-
-  ),
+  current: undefined,
   loading: false,
 };
 export const enfantReducer = createReducer(
@@ -23,8 +21,7 @@ export const enfantReducer = createReducer(
   on(EnfantsActions.loadEnfantsSuccess, (state, {enfants}) => ({...state, enfants, loading: false})),
 
   on(EnfantsActions.loadEnfantsFailure, (state, {error}) => ({...state, error, loading: false})),
-  on(EnfantsActions.selectEnfant, (state, {enfant}) => ({...state, current: enfant})),
-  on(EnfantsActions.selectOneEnfant, state => ({...state, current: state.enfants[0]})),
+  on(EnfantsActions.selectEnfantByEnfant, (state, {enfant}) => ({...state, current: enfant})),
   /*
 
    on(TodoActions.addTodo, (state, { todo }) => ({ ...state, todos: [...state.todos, todo] })),

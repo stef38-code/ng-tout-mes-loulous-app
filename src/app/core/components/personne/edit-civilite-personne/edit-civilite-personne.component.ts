@@ -1,51 +1,76 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Personne} from "@model/personne";
-import {MAT_DATE_LOCALE, provideNativeDateAdapter} from "@angular/material/core";
-import {MatCheckbox} from "@angular/material/checkbox";
-import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from "@angular/material/datepicker";
-import {MatFormField, MatLabel, MatSuffix} from "@angular/material/form-field";
-import {MatInput} from "@angular/material/input";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {
+  ControlContainer,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  FormGroupDirective,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators
+} from "@angular/forms";
 import {NgIf} from "@angular/common";
-import {MatButtonToggleModule} from "@angular/material/button-toggle";
-import {FlexModule} from "@angular/flex-layout";
-import {MatCard, MatCardContent, MatCardTitle} from "@angular/material/card";
+import {PanelModule} from "primeng/panel";
+import {SelectButtonModule} from "primeng/selectbutton";
+import {CheckboxModule} from "primeng/checkbox";
+import {InputTextModule} from "primeng/inputtext";
+import {CalendarModule} from "primeng/calendar";
+import {FloatLabelModule} from "primeng/floatlabel";
 
 @Component({
   selector: 'edit-civilite-personne',
   standalone: true,
   imports: [
-    MatCheckbox,
-    MatDatepicker,
-    MatDatepickerInput,
-    MatDatepickerToggle,
-    MatFormField,
-    MatInput,
-    MatLabel,
-    MatSuffix,
     ReactiveFormsModule,
     FormsModule,
     NgIf,
-    MatButtonToggleModule,
-    FlexModule,
-    MatCard,
-    MatCardContent,
-    MatCardTitle
-  ],
-  providers: [provideNativeDateAdapter(),
-    {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
+    PanelModule,
+    SelectButtonModule,
+    CheckboxModule,
+    InputTextModule,
+    CalendarModule,
+    FloatLabelModule,
 
   ],
+  viewProviders: [{
+    provide: ControlContainer,
+    useExisting: FormGroupDirective,
+  }],
   templateUrl: './edit-civilite-personne.component.html',
   styleUrl: './edit-civilite-personne.component.scss'
 })
-export class EditCivilitePersonneComponent {
-
+export class EditCivilitePersonneComponent implements OnInit {
+  parent: FormGroupDirective;
+  @Input() index: number = 0;
   @Input() personne: Personne;
   @Input() isParent: boolean = false;
-  maxDate: Date;
 
-  constructor() {
+  maxDate: Date;
+  anniversaire: Date;
+
+  stateOptions: any[] = [{label: 'Madame', value: 'F'}, {label: 'Monsieur', value: 'M'}];
+  civiliteForm: FormGroup;
+
+
+  constructor(private fb: FormBuilder, parent: FormGroupDirective) {
     this.maxDate = new Date();
+    this.parent = parent;
   }
+
+  ngOnInit(): void {
+
+    this.civiliteForm = this.fb.group({
+      nom: new FormControl(this.personne.nom, Validators.required),
+      prenom: new FormControl(this.personne.prenom, Validators.required),
+      genre: new FormControl(this.personne.genre, Validators.required),
+      divorce: new FormControl(this.personne.divorcer, Validators.required),
+      dateNaissance: new FormControl(this.personne.divorcer, Validators.required),
+    });
+
+
+    this.parent.form.addControl(`${this.index}_civilite`, this.civiliteForm);
+
+  }
+
 }

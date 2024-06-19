@@ -1,0 +1,31 @@
+<div class="flex overflow-hidden">
+  <div class="field w-full pt-4 pr-4">
+    <p-floatLabel>
+      <input
+        [ngModel]="item.nom"
+        id="nom"
+        class="w-full"
+        pInputText/>
+      <label for="nom">Nom </label>
+    </p-floatLabel>
+  </div>
+  <div class="field w-full pt-4 pr-4">
+    <p-floatLabel>
+      <input
+        [ngModel]="item.prenom"
+        id="prenom"
+        class="w-full"
+        pInputText/>
+      <label for="prenom">Prénom </label>
+    </p-floatLabel>
+  </div>
+</div>
+<div class="flex flex-row pt-4">
+  <p-floatLabel>
+    <p-calendar [maxDate]="maxDate"
+                [ngModel]="item.dateNaissance" [showIcon]="true"
+                dateFormat="dd/mm/yy"
+                id="dateNaiss"></p-calendar>
+    <label for="dateNaiss">Date de naissance </label>
+  </p-floatLabel>
+</div>

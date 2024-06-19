@@ -1,16 +1,19 @@
-<mat-toolbar>
-  <button mat-icon-button flex>
-    <mat-icon>person_add</mat-icon>
-  </button>
-</mat-toolbar>
-<div fxLayout="row" class="title-page-liste-enfants">
-  <H2>Liste des enfants</H2>
-</div>
-<div fxLayout="row" class="liste-enfants m4 s6">
-  <div *ngFor="let enfant of enfants$ | async; trackBy: trackByFn; let i = index">
-    <card-enfant [item]="enfant"></card-enfant>
+<loading-component [target]="component"></loading-component>
+<div #component class="flex flex-column">
+  <div class="flex align-items-center justify-content-center">
+    <H2>Liste des enfants</H2>
+  </div>
+  <div class="flex flex-row flex-wrap align-items-center justify-content-center">
+    <card-new-enfant [item]="newEnfant$ | async"></card-new-enfant>
+    @for (enfant of enfants$ | async; track $index) {
+      <div class="flex flex-column">
+        <card-enfant [item]="enfant"></card-enfant>
+      </div>
+    }
+
   </div>
 </div>
+
 
 
 

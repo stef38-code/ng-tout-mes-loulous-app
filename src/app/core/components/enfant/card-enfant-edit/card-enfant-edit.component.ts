@@ -1,27 +1,26 @@
 import {Component, Input} from '@angular/core';
 import {Enfant} from "@model/enfant";
-import {MatCardModule} from "@angular/material/card";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatIconModule} from "@angular/material/icon";
-import {MatInputModule} from "@angular/material/input";
-import {FormsModule} from "@angular/forms";
-import {MatDatepickerModule} from "@angular/material/datepicker";
-import {MAT_DATE_LOCALE, provideNativeDateAdapter} from "@angular/material/core";
+import {FloatLabelModule} from "primeng/floatlabel";
+import {InputTextModule} from "primeng/inputtext";
+import {PaginatorModule} from "primeng/paginator";
+import {CalendarModule} from "primeng/calendar";
+import {EditCiviliteEnfantComponent} from "@core/components/enfant/edit-civilite-enfant/edit-civilite-enfant.component";
+import {EditFratrieEnfantComponent} from "@core/components/enfant/edit-fratrie-enfant/edit-fratrie-enfant.component";
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'card-enfant-edit',
   standalone: true,
   imports: [
-    MatCardModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    FormsModule,
-    MatDatepickerModule,
+    FloatLabelModule,
+    InputTextModule,
+    PaginatorModule,
+    CalendarModule,
+    EditCiviliteEnfantComponent,
+    EditFratrieEnfantComponent
   ],
-  providers: [provideNativeDateAdapter(),
-    {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
-
+  providers: [
   ],
   templateUrl: './card-enfant-edit.component.html',
   styleUrl: './card-enfant-edit.component.scss'
@@ -31,10 +30,22 @@ export class CardEnfantEditComponent {
   minDate: Date;
   maxDate: Date;
 
-  constructor() {
+  constructor(private router: Router,) {
     // Max 6 ans, mini la date du jour
     const currentYear = new Date().getFullYear();
     this.minDate = new Date(currentYear - 6, 0, 1);
     this.maxDate = new Date();
+  }
+
+  goToListEnfant(item: Enfant) {
+    this.router.navigate(['/enfant/liste']);
+  }
+
+  goToListEnfants() {
+    this.router.navigate(['/enfant/liste']);
+  }
+
+  goToEditParents() {
+    this.router.navigate(['/parents/editer']);
   }
 }

@@ -1,0 +1,19 @@
+<div class="flex flex-column flex-wrap pt-3 pl-3" [formGroup]='formEditComponentPersonne'>
+  <div class="flex align-items-center justify-content-center gap-2" style="color: #8b8f8f;">
+    <!-- titre -->
+    <span class="font-bold">
+    Parent {{ index + 1 }}
+    </span>
+  </div>
+  <edit-civilite-personne
+    [index]="index"
+    [isParent]="true"
+    [personne]="personne"
+  ></edit-civilite-personne>
+  <edit-adresse-personne
+    [index]="index"
+    [adresse]="personne.adresse"></edit-adresse-personne>
+  <edit-tel-email-personne
+    [index]="index"
+    [personne]="personne"></edit-tel-email-personne>
+</div>

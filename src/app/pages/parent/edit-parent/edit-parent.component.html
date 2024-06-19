@@ -1,36 +1,51 @@
 @if (current$ | async; as enfant) {
-  @if (enfant.parents) {
-    <section fxLayout="row">
-      <div fxFlex fxLayout="column">
-        <section fxFlex>
-          <div class="centered-row">
-            <div *ngFor="let parent of enfant.parents; let i = index" fxFlex>
-              <card-parent-edit [index]="i" [parent]="parent"></card-parent-edit>
-            </div>
-          </div>
-        </section>
-        <section class="centered-row">
-          <button mat-flat-button color="primary"
-                  class="mat-padding-10"
-                  (click)="goToListEnfant(enfant)"
-          >Enregistrer
-          </button>
-          <button mat-flat-button color="accent"
-                  class="mat-padding-10"
-                  (click)="goToListEnfants()"
-          >Retour
-          </button>
-        </section>
-      </div>
 
-    </section>
-  } @else {
-    <section fxFlexFill class="centered-row">
-      <button mat-flat-button color="warn"
-              class="mat-padding-10"
-              (click)="goToListEnfants()"
-      >Retour
-      </button>
-    </section>
+  <form [formGroup]="formEditParentComponent" (ngSubmit)="submit(enfant)">
+    @if (enfant.parents) {
+    <div class="flex overflow-hidden">
+      @for (parent of enfant.parents; track $index) {
+        <div class="flex-grow-1">
+          <edit-component-personne [index]="$index"
+                                   [personne]="parent"></edit-component-personne>
+        </div>
+      }
+    </div>
+    <div class="flex justify-content-center flex-wrap">
+      <div class="flex align-items-center justify-content-center">
+        <p-button
+          severity="success"
+          class="mat-padding-10"
+          (onClick)="saveAndGotoListEnfant(enfant)"
+          text="true"
+          type="submit"
+          [disabled]="formEditParentComponent.invalid"
+        >Enregistrer
+        </p-button>
+      </div>
+      <div class="flex align-items-center justify-content-center">
+        <p-button severity="danger"
+                  class="mat-padding-10"
+                  (onClick)="goToListEnfants()"
+                  text="true"
+        >Retour
+        </p-button>
+      </div>
+      <div class="flex align-items-center justify-content-center">
+        <p-button severity="secondary"
+                  class="mat-padding-10"
+                  (onClick)="goToEditEnfant()"
+                  text="true"
+        >{{ enfant.prenom }} {{ enfant.nom }}
+        </p-button>
+      </div>
+    </div>
+  }
+  </form>
+  @if (formEditParentComponent) {
+    <pre>
+    {{ formEditParentComponent.value | json }}
+    {{ formEditParentComponent.status | json }}
+  </pre>
   }
 }
+

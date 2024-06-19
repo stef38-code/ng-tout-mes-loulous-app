@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import {SidebarItem} from "./model/menu-sidebar.interface";
+import {Injectable} from '@angular/core';
+import {SidebarItem} from "@layout/model/menu-sidebar.interface";
 import {Observable, of} from "rxjs";
 
 @Injectable({
@@ -9,24 +9,28 @@ export class SidebarService {
   getSidebarItems(): Observable<SidebarItem[]> {
     return of([
       {
+        id: 0,
         text: '',
         link: '/home',
-        icon: 'home',
+        icon: 'pi-home',
       },
       {
+        id: 1,
         text: '',
         link: '/enfant/liste',
-        icon: 'sentiment_very_satisfied',
+        icon: 'pi-users',
       },
       {
+        id: 2,
         text: '',
         link: '/parent/liste',
-        icon: 'family_restroom',
+        icon: 'pi-address-book',
       },
       {
+        id: 3,
         text: '',
         link: '/saisie/mois',
-        icon: 'savings',
+        icon: 'pi-calendar',
       },
     ]);
   }

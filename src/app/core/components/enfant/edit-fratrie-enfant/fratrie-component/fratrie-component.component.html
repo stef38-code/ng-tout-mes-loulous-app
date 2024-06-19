@@ -1,0 +1,8 @@
+@if (fraterie$ | async; as enfant) {
+<p-button severity="secondary"
+          class="mat-padding-10"
+          (onClick)="goTo(enfant)"
+          text="true"
+>{{ enfant.prenom }} {{ enfant.nom }}
+</p-button>
+}
