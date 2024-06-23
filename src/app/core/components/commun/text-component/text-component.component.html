@@ -1,0 +1,11 @@
+<p-floatLabel>
+  <input
+    id="text"
+    class="w-full"
+    formControlName="fCNText"
+    pInputText/>
+  <label for="text">{{ label }} </label>
+  @if (fCNText?.invalid) {
+    <small id="text-help" class="p-error">{{ erreur }}</small>
+  }
+</p-floatLabel>

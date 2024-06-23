@@ -22,8 +22,8 @@ import {FloatLabelModule} from "primeng/floatlabel";
 import {
   ValidateurLettresEspacesTiretsDirective
 } from "@core/components/directives/validators/validateur-lettres-espaces-tirets";
-import {filter} from "rxjs";
 import {Message} from "primeng/api";
+import {TextComponentComponent} from "@core/components/commun/text-component/text-component.component";
 
 @Component({
   selector: 'edit-civilite-personne',
@@ -39,7 +39,8 @@ import {Message} from "primeng/api";
     CalendarModule,
     FloatLabelModule,
     JsonPipe,
-    MessagesModule
+    MessagesModule,
+    TextComponentComponent
   ],
   providers: [
     ValidateurLettresEspacesTiretsDirective // Enregistrer le Validator
@@ -71,6 +72,7 @@ export class EditCivilitePersonneComponent implements OnInit {
   genre = new FormControl();
   divorce = new FormControl();
   dateNaissance = new FormControl();
+  erreurNom: string | undefined;
 
   constructor(private fb: FormBuilder,
               parent: FormGroupDirective,
@@ -78,11 +80,16 @@ export class EditCivilitePersonneComponent implements OnInit {
   ) {
     this.maxDate = new Date();
     this.parent = parent;
-    this.nom.statusChanges.pipe(
-      filter((status: FormControlStatus) => status != "VALID")
-    ).subscribe({
-        next: () => {
-          this.messagesNom = [{severity: 'error', summary: this.nom.getError('erreur')}]
+    this.nom.statusChanges
+      .subscribe({
+        next: (status: FormControlStatus) => {
+          if (status != "VALID") {
+            if (this.erreurNom == undefined) {
+              this.erreurNom = this.nom.getError('erreur')
+            }
+          } else {
+            this.erreurNom = undefined;
+          }
         }
       }
     );

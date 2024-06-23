@@ -18,7 +18,15 @@ export class ValidateurLettresEspacesTiretsDirective implements Validator {
 
   static validateLettresEspacesTirets(control: FormControl): ValidationErrors | null {
     const regExp = /^[a-zA-Z\s-]+$/; // Expression régulière pour les lettres, espaces et tirets
-    const valide = regExp.test(control.value);
-    return valide ? null : {'erreur': "Le champ n'accepte que les éléments suivants: lettre, espace ou bien un tiret"}; // Retourner une erreur si la validation échoue
+    let string = control.value;
+    if (string.length == 0) {
+      return {'erreur': "Le champ est obligatoire !!"}
+    }
+    const valide = regExp.test(string);
+    if (valide) {
+      return null;
+    } else {
+      return {'erreur': "Le champ n'accepte que les éléments suivants: lettre, espace ou bien un tiret"};
+    } // Retourner une erreur si la validation échoue
   }
 }

@@ -16,6 +16,7 @@
   </div>
   <div class="flex overflow-hidden">
     <div class="field w-full pt-4 pr-4">
+      <app-text-component label="Nom" [value]="personne.nom"></app-text-component>
       <p-floatLabel>
         <input
           id="nom"
@@ -24,14 +25,7 @@
           pInputText/>
         <label for="nom">Nom </label>
         @if (nom?.invalid) {
-          <p-messages
-            severity="error"
-            [(value)]="messagesNom"
-            [enableService]="false"
-            [closable]="false"/>
-          <div class="alert alert-danger" role="alert">
-            Error
-          </div>
+          <small id="username-help" class="p-error">{{ erreurNom }}</small>
         }
       </p-floatLabel>
     </div>
